@@ -11,7 +11,7 @@ get '/' do
 end
 
 get '/enduser'  do
-  @patients = Volunteer.all
+  @patients = Patient.all
   erb :enduser1
 end
 
