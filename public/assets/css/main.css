@@ -906,14 +906,24 @@ section.starting-text
 }
 .blog-title .headline
 {
+<<<<<<< HEAD
     font-size: 70px;
     word-spacing: 10px;
+=======
+    font-size: 30px; /*changed from 70px to 40px */
+    word-spacing: 5px; /*changed from 10px to 5px */
+>>>>>>> frontendEB
 }
 .blog-wrapper
 {
     background-color: rgba(45, 53, 56, 0.62);
+<<<<<<< HEAD
     padding: 78px 0px;
     margin-top: 65px;
+=======
+    padding: 0px 0px; /*changed from 78px to 0px 0px;*/
+    margin-top: 0px;  /* changed from 65px to 0 pix*/
+>>>>>>> frontendEB
 }
 .archive article 
 {

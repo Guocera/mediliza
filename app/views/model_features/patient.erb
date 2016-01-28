@@ -1,0 +1,6 @@
+<% @patient = Patient.create(first_name: "Nick", last_name: "Yoo", beverage_type: "Водка", mobility_type: "walk", language: "Русский язык") %>
+<%= markdown("first_name: #{@patient.first_name}") %>
+<%= markdown("last_name: #{@patient.last_name}") %>
+<%= markdown("beverage_type: #{@patient.beverage_type}") %>
+<%= markdown("mobility_type: #{@patient.mobility_type}") %>
+<%= markdown("language: #{@patient.language}") %>

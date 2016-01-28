@@ -57,6 +57,7 @@ GEM
     rack-test (0.6.3)
       rack (>= 1.0)
     rake (10.4.2)
+    rdiscount (2.1.8)
     rdoc (4.2.0)
     rest-client (1.6.8)
       mime-types (~> 1.16)
@@ -107,8 +108,12 @@ DEPENDENCIES
   pry
   puma
   rake
+  rdiscount
   shotgun
   sinatra
   sinatra-activerecord
   sinatra-contrib
   tux
+
+BUNDLED WITH
+   1.11.2
