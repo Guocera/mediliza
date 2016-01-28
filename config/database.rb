@@ -21,7 +21,4 @@ configure do
     filename = File.basename(model_file).gsub('.rb', '')
     autoload ActiveSupport::Inflector.camelize(filename), model_file
   end
-
-  # require_relative '../app/models/volunteer.rb'
-
 end

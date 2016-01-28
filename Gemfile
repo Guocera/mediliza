@@ -16,3 +16,5 @@ gem 'heroku'
 
 gem 'pry'
 gem 'shotgun'
+
+gem 'rdiscount'
