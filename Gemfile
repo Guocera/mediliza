@@ -10,7 +10,11 @@ gem 'sinatra-activerecord'
 
 gem 'puma'
 gem 'tux'
-
-gem 'pry'
-gem 'shotgun'
 gem 'pg'
+
+gem 'heroku'
+
+group :development, :test do
+  gem 'pry'
+  gem 'shotgun'
+end
