@@ -4,10 +4,7 @@ configure do
     ActiveRecord::Base.logger = Logger.new(STDOUT)
   end
 
-  # set :database, {
-  #   adapter: "postgresql",
-  #   database: "db/development"
-  # }
+
 
   ActiveRecord::Base.establish_connection(
     adapter: "postgresql",
