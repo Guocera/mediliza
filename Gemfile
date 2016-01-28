@@ -14,7 +14,5 @@ gem 'pg'
 
 gem 'heroku'
 
-group :development, :test do
-  gem 'pry'
-  gem 'shotgun'
-end
+gem 'pry'
+gem 'shotgun'
