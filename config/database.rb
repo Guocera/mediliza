@@ -22,6 +22,6 @@ configure do
   #   autoload ActiveSupport::Inflector.camelize(filename), model_file
   # end
 
-  require_relative '../app/models/volunteer.rb'
+  # require_relative '../app/models/volunteer.rb'
 
 end
