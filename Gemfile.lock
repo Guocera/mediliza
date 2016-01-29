@@ -116,6 +116,8 @@ GEM
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     yard (0.8.7.6)
+    yard-sinatra (1.0.0)
+      yard (~> 0.7)
 
 PLATFORMS
   ruby
@@ -137,6 +139,7 @@ DEPENDENCIES
   sinatra-contrib
   tux
   yard
+  yard-sinatra
 
 BUNDLED WITH
    1.11.2
