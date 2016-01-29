@@ -1,3 +1,4 @@
 class Interaction < ActiveRecord::Base
-  belongs_to :volunteer, :patient
+  belongs_to :volunteer
+  belongs_to :patient
 end
