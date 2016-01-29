@@ -101,20 +101,841 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Interactions between volunteer and patients.  Records information about the
+activities done.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#beverage-instance_method" title="#beverage (instance method)">- (Boolean) <strong>beverage</strong> </a>
+    
 
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>True if beverage was drunk.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#observation-instance_method" title="#observation (instance method)">- (String) <strong>observation</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Volunteer observations of the patient.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#patient_id-instance_method" title="#patient_id (instance method)">- (Integer) <strong>patient_id</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Id of the patient being interacted with.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#time-instance_method" title="#time (instance method)">- (DateTime) <strong>time</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Time of the interaction.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#volunteer_id-instance_method" title="#volunteer_id (instance method)">- (Integer) <strong>volunteer_id</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Id of the volunteer interacting.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#walking_duration-instance_method" title="#walking_duration (instance method)">- (Integer) <strong>walking_duration</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The duration of walking in minutes.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
 
 
 
 
   
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#patient-instance_method" title="#patient (instance method)">- (Patient) <strong>patient</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Gives back the patient involved in the interaction.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#volunteer-instance_method" title="#volunteer (instance method)">- (Volunteer) <strong>volunteer</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Gives back volunteer involved in the interaction.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="beverage=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="beverage-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>beverage</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns true if beverage was drunk</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>true if beverage was drunk</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/interaction.rb', line 15</span>
+
+<span class='kw'>class</span> <span class='const'>Interaction</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
+  <span class='comment'># Gives back volunteer involved in the interaction
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Volunteer] gives the volunteer involved in the interaction
+</span>  <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:volunteer</span>
+
+  <span class='comment'># Gives back the patient involved in the interaction
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Patient] gives the patient involved in the interaction
+</span>  <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:patient</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="observation=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="observation-instance_method">
+  
+    - (<tt>String</tt>) <strong>observation</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns volunteer observations of the patient</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>volunteer observations of the patient</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/interaction.rb', line 15</span>
+
+<span class='kw'>class</span> <span class='const'>Interaction</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
+  <span class='comment'># Gives back volunteer involved in the interaction
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Volunteer] gives the volunteer involved in the interaction
+</span>  <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:volunteer</span>
+
+  <span class='comment'># Gives back the patient involved in the interaction
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Patient] gives the patient involved in the interaction
+</span>  <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:patient</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="patient_id=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="patient_id-instance_method">
+  
+    - (<tt>Integer</tt>) <strong>patient_id</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns id of the patient being interacted with</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>id of the patient being interacted with</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/interaction.rb', line 15</span>
+
+<span class='kw'>class</span> <span class='const'>Interaction</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
+  <span class='comment'># Gives back volunteer involved in the interaction
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Volunteer] gives the volunteer involved in the interaction
+</span>  <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:volunteer</span>
+
+  <span class='comment'># Gives back the patient involved in the interaction
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Patient] gives the patient involved in the interaction
+</span>  <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:patient</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="time=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="time-instance_method">
+  
+    - (<tt>DateTime</tt>) <strong>time</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns time of the interaction</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>DateTime</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>time of the interaction</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/interaction.rb', line 15</span>
+
+<span class='kw'>class</span> <span class='const'>Interaction</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
+  <span class='comment'># Gives back volunteer involved in the interaction
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Volunteer] gives the volunteer involved in the interaction
+</span>  <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:volunteer</span>
+
+  <span class='comment'># Gives back the patient involved in the interaction
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Patient] gives the patient involved in the interaction
+</span>  <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:patient</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="volunteer_id=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="volunteer_id-instance_method">
+  
+    - (<tt>Integer</tt>) <strong>volunteer_id</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns id of the volunteer interacting</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>id of the volunteer interacting</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/interaction.rb', line 15</span>
+
+<span class='kw'>class</span> <span class='const'>Interaction</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
+  <span class='comment'># Gives back volunteer involved in the interaction
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Volunteer] gives the volunteer involved in the interaction
+</span>  <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:volunteer</span>
+
+  <span class='comment'># Gives back the patient involved in the interaction
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Patient] gives the patient involved in the interaction
+</span>  <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:patient</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="walking_duration=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="walking_duration-instance_method">
+  
+    - (<tt>Integer</tt>) <strong>walking_duration</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the duration of walking in minutes</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the duration of walking in minutes</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/interaction.rb', line 15</span>
+
+<span class='kw'>class</span> <span class='const'>Interaction</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
+  <span class='comment'># Gives back volunteer involved in the interaction
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Volunteer] gives the volunteer involved in the interaction
+</span>  <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:volunteer</span>
+
+  <span class='comment'># Gives back the patient involved in the interaction
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Patient] gives the patient involved in the interaction
+</span>  <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:patient</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="patient-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Patient.html" title="Patient (class)">Patient</a></span></tt>) <strong>patient</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Gives back the patient involved in the interaction</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Patient.html" title="Patient (class)">Patient</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>gives the patient involved in the interaction</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/interaction.rb', line 24</span>
+
+<span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:patient</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="volunteer-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Volunteer.html" title="Volunteer (class)">Volunteer</a></span></tt>) <strong>volunteer</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Gives back volunteer involved in the interaction</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Volunteer.html" title="Volunteer (class)">Volunteer</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>gives the volunteer involved in the interaction</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/interaction.rb', line 19</span>
+
+<span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:volunteer</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
 
 </div>
 
     <div id="footer">
-  Generated on Fri Jan 29 09:38:41 2016 by
+  Generated on Fri Jan 29 12:14:58 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.3).
 </div>

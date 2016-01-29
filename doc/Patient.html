@@ -101,9 +101,188 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Patient record of their preferences along with their interactions with
+volunteers.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#beverage_type-instance_method" title="#beverage_type (instance method)">- (String) <strong>beverage_type</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Describes the type of drink required.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#first_name-instance_method" title="#first_name (instance method)">- (String) <strong>first_name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>First name of the patient.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#language-instance_method" title="#language (instance method)">- (String) <strong>language</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Lists language spoken.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#last_name-instance_method" title="#last_name (instance method)">- (String) <strong>last_name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Last name of the patient.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mobility_type-instance_method" title="#mobility_type (instance method)">- (String) <strong>mobility_type</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Describes the mobility level.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#staff_id-instance_method" title="#staff_id (instance method)">- (Integer) <strong>staff_id</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Id of the staff associated with the patient.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
 
 
 
@@ -115,6 +294,30 @@
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#interactions-instance_method" title="#interactions (instance method)">- (Array) <strong>interactions</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>List of all intractions with the patient unsorted.</p>
+</div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -140,18 +343,744 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#preferences-instance_method" title="#preferences (instance method)">- (Array) <strong>preferences</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>List of all prefences with the patient unsorted.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#staff-instance_method" title="#staff (instance method)">- (Staff) <strong>staff</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Gives the staff member associated with the patient.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
 
   
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="beverage_type=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="beverage_type-instance_method">
+  
+    - (<tt>String</tt>) <strong>beverage_type</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns describes the type of drink required</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>describes the type of drink required</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 15</span>
+
+<span class='kw'>class</span> <span class='const'>Patient</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
+  <span class='comment'># Gives the staff member associated with the patient.
+</span>  <span class='comment'>#   
+</span>  <span class='comment'># @return [Staff] gives the staff member associated with the patient
+</span>  <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:staff</span>
+
+  <span class='comment'># List of all prefences with the patient unsorted
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] lists all the preferences unsorted
+</span>  <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:preferences</span>
+  <span class='comment'># List of all intractions with the patient unsorted
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] lists all the interactions unsorted
+</span>  <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:interactions</span>
+  
+  <span class='comment'># Lists the most recent interactions with the patient
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @param [FixNum] number of recent interactions (default: 3)
+</span>  <span class='comment'># @return [Array] list of recent interaction
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interaction'>last_interaction</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="first_name=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="first_name-instance_method">
+  
+    - (<tt>String</tt>) <strong>first_name</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns first name of the patient</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>first name of the patient</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 15</span>
+
+<span class='kw'>class</span> <span class='const'>Patient</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
+  <span class='comment'># Gives the staff member associated with the patient.
+</span>  <span class='comment'>#   
+</span>  <span class='comment'># @return [Staff] gives the staff member associated with the patient
+</span>  <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:staff</span>
+
+  <span class='comment'># List of all prefences with the patient unsorted
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] lists all the preferences unsorted
+</span>  <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:preferences</span>
+  <span class='comment'># List of all intractions with the patient unsorted
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] lists all the interactions unsorted
+</span>  <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:interactions</span>
+  
+  <span class='comment'># Lists the most recent interactions with the patient
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @param [FixNum] number of recent interactions (default: 3)
+</span>  <span class='comment'># @return [Array] list of recent interaction
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interaction'>last_interaction</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="language=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="language-instance_method">
+  
+    - (<tt>String</tt>) <strong>language</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns lists language spoken</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>lists language spoken</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 15</span>
+
+<span class='kw'>class</span> <span class='const'>Patient</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
+  <span class='comment'># Gives the staff member associated with the patient.
+</span>  <span class='comment'>#   
+</span>  <span class='comment'># @return [Staff] gives the staff member associated with the patient
+</span>  <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:staff</span>
+
+  <span class='comment'># List of all prefences with the patient unsorted
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] lists all the preferences unsorted
+</span>  <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:preferences</span>
+  <span class='comment'># List of all intractions with the patient unsorted
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] lists all the interactions unsorted
+</span>  <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:interactions</span>
+  
+  <span class='comment'># Lists the most recent interactions with the patient
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @param [FixNum] number of recent interactions (default: 3)
+</span>  <span class='comment'># @return [Array] list of recent interaction
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interaction'>last_interaction</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="last_name=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="last_name-instance_method">
+  
+    - (<tt>String</tt>) <strong>last_name</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns last name of the patient</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>last name of the patient</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 15</span>
+
+<span class='kw'>class</span> <span class='const'>Patient</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
+  <span class='comment'># Gives the staff member associated with the patient.
+</span>  <span class='comment'>#   
+</span>  <span class='comment'># @return [Staff] gives the staff member associated with the patient
+</span>  <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:staff</span>
+
+  <span class='comment'># List of all prefences with the patient unsorted
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] lists all the preferences unsorted
+</span>  <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:preferences</span>
+  <span class='comment'># List of all intractions with the patient unsorted
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] lists all the interactions unsorted
+</span>  <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:interactions</span>
+  
+  <span class='comment'># Lists the most recent interactions with the patient
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @param [FixNum] number of recent interactions (default: 3)
+</span>  <span class='comment'># @return [Array] list of recent interaction
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interaction'>last_interaction</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="mobility_type=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="mobility_type-instance_method">
+  
+    - (<tt>String</tt>) <strong>mobility_type</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns describes the mobility level</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>describes the mobility level</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 15</span>
+
+<span class='kw'>class</span> <span class='const'>Patient</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
+  <span class='comment'># Gives the staff member associated with the patient.
+</span>  <span class='comment'>#   
+</span>  <span class='comment'># @return [Staff] gives the staff member associated with the patient
+</span>  <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:staff</span>
+
+  <span class='comment'># List of all prefences with the patient unsorted
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] lists all the preferences unsorted
+</span>  <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:preferences</span>
+  <span class='comment'># List of all intractions with the patient unsorted
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] lists all the interactions unsorted
+</span>  <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:interactions</span>
+  
+  <span class='comment'># Lists the most recent interactions with the patient
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @param [FixNum] number of recent interactions (default: 3)
+</span>  <span class='comment'># @return [Array] list of recent interaction
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interaction'>last_interaction</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="staff_id=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="staff_id-instance_method">
+  
+    - (<tt>Integer</tt>) <strong>staff_id</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns id of the staff associated with the patient</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>id of the staff associated with the patient</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 15</span>
+
+<span class='kw'>class</span> <span class='const'>Patient</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
+  <span class='comment'># Gives the staff member associated with the patient.
+</span>  <span class='comment'>#   
+</span>  <span class='comment'># @return [Staff] gives the staff member associated with the patient
+</span>  <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:staff</span>
+
+  <span class='comment'># List of all prefences with the patient unsorted
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] lists all the preferences unsorted
+</span>  <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:preferences</span>
+  <span class='comment'># List of all intractions with the patient unsorted
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] lists all the interactions unsorted
+</span>  <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:interactions</span>
+  
+  <span class='comment'># Lists the most recent interactions with the patient
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @param [FixNum] number of recent interactions (default: 3)
+</span>  <span class='comment'># @return [Array] list of recent interaction
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interaction'>last_interaction</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="last_interaction-instance_method">
+  <h3 class="signature first" id="interactions-instance_method">
+  
+    - (<tt>Array</tt>) <strong>interactions</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>List of all intractions with the patient unsorted</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>lists all the interactions unsorted</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 28</span>
+
+<span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:interactions</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="last_interaction-instance_method">
   
     - (<tt>Array</tt>) <strong>last_interaction</strong>(num = 3) 
   
@@ -214,16 +1143,126 @@
       <pre class="lines">
 
 
-10
-11
-12</pre>
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_last_interaction'>last_interaction</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="preferences-instance_method">
+  
+    - (<tt>Array</tt>) <strong>preferences</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>List of all prefences with the patient unsorted</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>lists all the preferences unsorted</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 24</span>
+
+<span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:preferences</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="staff-instance_method">
+  
+    - (<tt><span class='object_link'><a href="Staff.html" title="Staff (class)">Staff</a></span></tt>) <strong>staff</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Gives the staff member associated with the patient.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Staff.html" title="Staff (class)">Staff</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>gives the staff member associated with the patient</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 19</span>
+
+<span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:staff</span></pre>
     </td>
   </tr>
 </table>
@@ -234,7 +1273,7 @@
 </div>
 
     <div id="footer">
-  Generated on Fri Jan 29 09:38:41 2016 by
+  Generated on Fri Jan 29 12:14:57 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.3).
 </div>

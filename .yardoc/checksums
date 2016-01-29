@@ -1,8 +1,9 @@
+app/actions.rb 7842922cc6ccd74652576a5f7f7200487a481fb5
 app/models/user.rb fc8ea1b931e16dc189166a80435e9bd874305377
-app/models/staff.rb fbc78f06ff443290a68e96c66b3c252081add21f
+app/models/staff.rb 8ae57e5567172fc5da066bc078b3e1d20ec3c295
 app/models/family.rb e690524ad9ea45b872467a82b72689a7675f9203
-app/models/patient.rb ca60eaa20d420740d976e074ce267f30341c33f6
+app/models/patient.rb ed7c7c911f80178fbbedcccf83de68883fdd06fe
 app/models/position.rb d0e8559c8e3357436af78f345a34a406f19f04f1
-app/models/volunteer.rb edcec4da32cd8f0c12f12604f0d7a0966b7e8aaa
-app/models/preference.rb d3a4b65fb3083cd50b21b979febb22e8a4134f63
-app/models/interaction.rb b654dbab3878d9f21f2fae43fc1fe67bd0299cb4
+app/models/volunteer.rb 46ddd0d17340128356c9dcae2060d8425cd72a6e
+app/models/preference.rb 84b55cf28598ff79f6c7721e776f10dcedadb609
+app/models/interaction.rb 578b0ed63eaf69664dfd35361ed3dc8540c00a8b
