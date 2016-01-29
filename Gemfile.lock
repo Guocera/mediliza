@@ -20,7 +20,12 @@ GEM
     bond (0.5.1)
     builder (3.2.2)
     coderay (1.1.0)
+    diff-lcs (1.2.5)
     excon (0.45.4)
+    factory_girl (4.5.0)
+      activesupport (>= 3.0.0)
+    faker (1.6.1)
+      i18n (~> 0.5)
     heroku (3.42.32)
       heroku-api (= 0.3.23)
       launchy (= 2.4.3)
@@ -70,6 +75,19 @@ GEM
       rack (>= 1.0)
       rack-test (~> 0.6.2)
       ripl (>= 0.7.0)
+    rspec (3.4.0)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+    rspec-core (3.4.1)
+      rspec-support (~> 3.4.0)
+    rspec-expectations (3.4.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-mocks (3.4.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-support (3.4.1)
     rubyzip (1.1.7)
     shotgun (0.9.1)
       rack (>= 1.0)
@@ -98,21 +116,27 @@ GEM
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     yard (0.8.7.6)
+    yard-sinatra (1.0.0)
+      yard (~> 0.7)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   activesupport
+  factory_girl
+  faker
   heroku
   pg
   pry
   puma
   rake
   rdiscount
+  rspec
   shotgun
   sinatra
   sinatra-activerecord
   sinatra-contrib
   tux
   yard
+

@@ -20,3 +20,8 @@ gem 'shotgun'
 gem 'rdiscount'
 
 gem 'yard'
+gem 'yard-sinatra'
+
+gem 'factory_girl'
+gem 'rspec'
+gem 'faker'
