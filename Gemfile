@@ -23,3 +23,4 @@ gem 'yard'
 
 gem 'factory_girl'
 gem 'rspec'
+gem 'faker'

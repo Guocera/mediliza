@@ -1,17 +1,16 @@
 require 'rake'
 require "sinatra/activerecord/rake"
+require 'factory_girl'
+require 'faker'
 require ::File.expand_path('../config/environment', __FILE__)
+require_relative './spec/support/factory_girl.rb'
+
 
 desc "Populates database"
-task 'db:populate' do
-  @patient = Patient.find_or_create_by(first_name: "Nick", last_name: "Yoooo", beverage_type: "Water")
-  @patient.interactions.create(observation: "We talked about WWII.")
-  @patient.interactions.create(observation: "We talked about farming.")
-  @patient.interactions.create(observation: "Camel")
-  @patient.interactions.create(observation: "Liked fish")
-  @patient.interactions.create(observation: "Played scrabble")
-  @patient.interactions.create(observation: "Sang songs")
-  @patient.interactions.create(observation: "Talked about kids")
-  @patient.interactions.create(observation: "Looks for husband")
-  @patient.interactions.create(observation: "didn't say much; was sad :(")
+task "db:populate" do
+  FactoryGirl.create_list(:staff, 5)
+  FactoryGirl.create_list(:patient, 50)
+  FactoryGirl.create_list(:volunteer, 20)
+  FactoryGirl.create_list(:interaction, 200)
+  FactoryGirl.create_list(:preference, 125)
 end
