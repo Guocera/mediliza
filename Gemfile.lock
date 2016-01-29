@@ -115,9 +115,4 @@ DEPENDENCIES
   sinatra-activerecord
   sinatra-contrib
   tux
-
   yard
-
-BUNDLED WITH
-   1.11.2
-
