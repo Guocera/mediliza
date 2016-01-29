@@ -19,7 +19,7 @@ get '/enduser'  do
   erb :enduser1
 end
 
-post '/enduser/patient' do
+post '/enduser2/' do
   
   erb :enduser2
 end
