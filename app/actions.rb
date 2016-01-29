@@ -19,6 +19,38 @@ post '/enduser/patient' do
 end
 
 # Nick's Test Suite
+get '/model_features/?' do
+  erb :'model_features/index'
+end
+
+get '/model_features/family' do
+  erb :'model_features/family'
+end
+
+get '/model_features/interaction' do
+  erb :'model_features/interaction'
+end
+
 get '/model_features/patient' do
   erb :'model_features/patient'
+end
+
+get '/model_features/position' do
+  erb :'model_features/position'
+end
+
+get '/model_features/preference' do
+  erb :'model_features/preference'
+end
+
+get '/model_features/staff' do
+  erb :'model_features/staff'
+end
+
+get '/model_features/user' do
+  erb :'model_features/user'
+end
+
+get '/model_features/volunteer' do
+  erb :'model_features/volunteer'
 end
