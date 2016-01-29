@@ -4,8 +4,6 @@ configure do
   #   ActiveRecord::Base.logger = Logger.new(STDOUT)
   # end
 
-
-
   ActiveRecord::Base.establish_connection(
     adapter: "postgresql",
     host: "ec2-54-225-197-143.compute-1.amazonaws.com",
