@@ -5,7 +5,7 @@ class CreateInteractions < ActiveRecord::Migration
       t.belongs_to :patient, index: true
       t.string :observation
       t.integer :walking_duration
-      t.string :beverage
+      t.boolean :beverage
       t.datetime :time
       t.timestamps null: false
     end
