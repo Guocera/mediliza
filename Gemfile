@@ -20,3 +20,6 @@ gem 'shotgun'
 gem 'rdiscount'
 
 gem 'yard'
+
+gem 'factory_girl'
+gem 'rspec'
