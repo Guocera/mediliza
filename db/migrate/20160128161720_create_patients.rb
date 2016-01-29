@@ -3,6 +3,7 @@ class CreatePatients < ActiveRecord::Migration
     create_table :patients do |t|
       t.string :first_name
       t.string :last_name
+      t.string :nick_name
       t.belongs_to :staff, index: true
       t.string :beverage_type
       t.string :mobility_type

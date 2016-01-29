@@ -35,4 +35,6 @@ class Patient < ActiveRecord::Base
     interactions.order(time: :desc).limit(num)
   end
 
+  default_scope { order(first_name: :asc, last_name: :asc) }
+
 end
