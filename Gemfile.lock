@@ -140,6 +140,3 @@ DEPENDENCIES
   tux
   yard
   yard-sinatra
-
-BUNDLED WITH
-   1.11.2
