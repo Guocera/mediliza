@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20160128162658) do
   create_table "patients", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "nick_name"
     t.integer  "staff_id"
     t.string   "beverage_type"
     t.string   "mobility_type"
