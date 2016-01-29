@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20160128162658) do
     t.integer  "patient_id"
     t.string   "observation"
     t.integer  "walking_duration"
-    t.string   "beverage"
+    t.boolean  "beverage"
     t.datetime "time"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
