@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20160128162658) do
 
   add_index "preferences", ["patient_id"], name: "index_preferences_on_patient_id", using: :btree
 
-  create_table "staff", force: :cascade do |t|
+  create_table "staffs", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "position_id"
