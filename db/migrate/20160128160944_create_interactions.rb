@@ -6,6 +6,7 @@ class CreateInteractions < ActiveRecord::Migration
       t.string :observation
       t.integer :walking_duration
       t.string :beverage
+      t.datetime :time
       t.timestamps null: false
     end
   end

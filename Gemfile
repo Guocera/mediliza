@@ -18,3 +18,5 @@ gem 'pry'
 gem 'shotgun'
 
 gem 'rdiscount'
+
+gem 'yard'
