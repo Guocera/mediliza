@@ -4,6 +4,8 @@
 #   @return [String] first name of the patient
 # @attribute last_name 
 #   @return [String] last name of the patient
+# @attribute nick_name 
+#   @return [String] preferred name of the patient
 # @attribute staff_id
 #   @return [Integer] id of the staff associated with the patient
 # @attribute beverage_type
