@@ -13,6 +13,7 @@ FactoryGirl.define do
   factory :patient do
     first_name     { Faker::Name.first_name }
     last_name      { Faker::Name.last_name }
+    nick_name      { Faker::Name.first_name }
     staff_id       { Faker::Number.between(1, 5) }
     beverage_type  { ["Water", "Water", "Water", "Water", "Water", "Thickened Water"].sample }
     mobility_type  { ["Walk", "Walk", "Walk", "walk", "Wheelchair"].sample }

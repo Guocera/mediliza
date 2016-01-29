@@ -4,6 +4,8 @@
 #   @return [String] first name of the patient
 # @attribute last_name 
 #   @return [String] last name of the patient
+# @attribute nick_name 
+#   @return [String] preferred name of the patient
 # @attribute staff_id
 #   @return [Integer] id of the staff associated with the patient
 # @attribute beverage_type
@@ -18,11 +20,6 @@ class Patient < ActiveRecord::Base
   # @return [Staff] gives the staff member associated with the patient
   belongs_to :staff
 
-<<<<<<< HEAD
-  def interactions
-    p "test"
-  end
-=======
   # List of all prefences with the patient unsorted
   #
   # @return [Array] lists all the preferences unsorted
@@ -40,5 +37,6 @@ class Patient < ActiveRecord::Base
     interactions.order(time: :desc).limit(num)
   end
 
->>>>>>> 5889d62da7bd5f5bd2cb0762152bb3ef0bc7f737
+  default_scope { order(first_name: :asc, last_name: :asc) }
+
 end

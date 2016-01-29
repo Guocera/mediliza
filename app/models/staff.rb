@@ -5,8 +5,8 @@
 # @attribute last_name 
 #   @return [String] last name of the volunteer
 class Staff < ActiveRecord::Base
-  # List of all their patients unsorted
+  # List of all their patients alphabetically
   #
-  # @return [Array] list of all their patients unsorted
+  # @return [Array] list of all their patients alphabetically
   has_many :patients
 end
