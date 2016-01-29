@@ -1,22 +1,16 @@
 require 'rake'
 require "sinatra/activerecord/rake"
+require 'factory_girl'
+require 'faker'
 require ::File.expand_path('../config/environment', __FILE__)
+require_relative './spec/support/factory_girl.rb'
 
-Rake::Task["db:create"].clear
-Rake::Task["db:drop"].clear
 
-# NOTE: Assumes SQLite3 DB
-desc "create the database"
-task "db:create" do
-  touch 'db/db.sqlite3'
-end
-
-desc "drop the database"
-task "db:drop" do
-  rm_f 'db/db.sqlite3'
-end
-
-desc 'Retrieves the current schema version number'
-task "db:version" do
-  puts "Current version: #{ActiveRecord::Migrator.current_version}"
+desc "Populates database"
+task "db:populate" do
+  FactoryGirl.create_list(:staff, 5)
+  FactoryGirl.create_list(:patient, 50)
+  FactoryGirl.create_list(:volunteer, 20)
+  FactoryGirl.create_list(:interaction, 200)
+  FactoryGirl.create_list(:preference, 125)
 end

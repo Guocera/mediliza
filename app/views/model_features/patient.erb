@@ -1,0 +1,6 @@
+<% @patient = Patient.find_or_create_by(first_name: "Nick", last_name: "Yoo", beverage_type: "Водка", mobility_type: "walk", language: "Русский язык") %>
+<p><%= "#first_name: returns the first name : #{@patient.first_name}" %></p>
+<p><%= "#last_name: returns the last name : #{@patient.last_name}" %></p>
+<p><%= "#beverage_type: returns the type of water they drink : #{@patient.beverage_type}" %></p>
+<p><%= "#mobility_type: returns how they move : #{@patient.mobility_type}" %></p>
+<p><%= "#language: returns the language(s) spoken : #{@patient.language}" %></p>
