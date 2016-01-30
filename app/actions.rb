@@ -25,7 +25,6 @@ get '/enduser'  do
   erb :enduser1
 end
 
-post '/enduser2/' do
-  
+get '/enduser2' do
   erb :enduser2
 end
