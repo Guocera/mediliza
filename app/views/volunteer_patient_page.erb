@@ -63,7 +63,7 @@
           </div>
           <div class="row">
             <div class="sub-headline">
-              <p style = " text-align: left;">Hi Volunteer, First_name, last_name </p>
+              <p style = " text-align: left;"> Hi <%="#{@volunteers.first.first_name}, #{@volunteers.first.last_name} "%></p> 
             </div>
           </div>  
         </div>
@@ -93,11 +93,11 @@
    
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title">IDD</h3>
+           <h3 class="panel-title"> <%= "#{@patients.first_name}, #{@patients.last_name} "%></h3>
             </div>
             <div class="panel-body">
               <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
+               <!--  <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div> -->
                 
                 <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
                   <dl>
@@ -116,7 +116,7 @@
                     <tbody>
                       <tr>
                         <td>Unit:</td>
-                        <td>Orthopedics</td>
+                        <td>@patients.id</td>
                       </tr>
                       <tr>
                         <td>Likes to be Known as:</td>
@@ -124,40 +124,37 @@
                       </tr>
                       <tr>
                         <td>Language Requirements</td>
-                        <td>English</td>
-                      </tr>
-                   
-                        <!--  <tr> -->
-                             <tr>
+                        <td>@patients.language</td>
+                      </tr>        
+                        
+                      <tr>
                         <td>Special Needs</td>
-                        <td>Not to go outside</td>
+                        <td>@patients.preference.likes</td>
                       </tr>
                         <tr>
                         <td></td>
-                        <td>Needs to walk at least 20mins</td>
+                        <td>@patients.mobility_type</td>
                       </tr>
                       <tr>
                         <td></td>
-                        <td> drink minimum of 1 glass of water</td>
+                        <td> @patients.beverage_type</td>
                       </tr>
+                      <tr>
                         <td>Emergency Contact</td>
-                        <td>Nurse Judy<br><br>555-4567-890(Landline)
-                        </td>
-                           
+                        <td>@patients.staff.first_name</td>   
                       </tr>
                      
                     </tbody>
                   </table>
                   
-                  <a href="#" class="btn btn-primary">Back to list of patients</a>
+                  <a href="/volunteer_home_page" class="btn btn-primary">Back to list of patients</a>
                  
                 </div>
               </div>
             </div>
                  <div class="panel-footer">
                         <a data-original-title="Broadcast Message"></a>
-                        <span class="pull-right">
-                        </span>
+                        <span class="pull-right"></span>
                     </div>
             
           </div>
@@ -195,9 +192,9 @@
                    <a href="#" class="btn btn-primary">Save Comments</a>
                 </div>   
              
-<!-- 
 
-    <section id="footer">
+
+    <!-- <section id="footer">
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
@@ -230,8 +227,8 @@
             </div>
           </div>
         </div>
-      </div>
-    </section> -->
+      </div> -->
+    </section>
 
     <script type="text/javascript" src="assets/js/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/wow.min.js"></script>

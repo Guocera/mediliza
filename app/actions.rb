@@ -11,11 +11,15 @@ get '/' do
 end
 
 get '/volunteer_home_page' do
+  @patients =  Patient.all
+  @volunteers =  Volunteer.all
   erb :volunteer_home_page
 end
 
 
-get '/volunteer_patient_page' do
+get '/volunteer_patient_page/:id' do
+  @patients = Patient.find params[:id]
+  @volunteers =  Volunteer.all
   erb :volunteer_patient_page
 end
 
