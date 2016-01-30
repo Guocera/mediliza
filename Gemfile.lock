@@ -139,4 +139,4 @@ DEPENDENCIES
   sinatra-contrib
   tux
   yard
-
+  yard-sinatra
