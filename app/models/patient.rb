@@ -15,6 +15,11 @@
 # @attribute language
 #   @return [String] lists language spoken
 class Patient < ActiveRecord::Base
+  default_scope { order(first_name: :asc, last_name: :asc) }
+  after_create :assign_family_code
+
+  @@codes = Array.new
+
   # Gives the staff member associated with the patient.
   #   
   # @return [Staff] gives the staff member associated with the patient
@@ -37,6 +42,19 @@ class Patient < ActiveRecord::Base
     interactions.order(time: :desc).limit(num)
   end
 
-  default_scope { order(first_name: :asc, last_name: :asc) }
+  # Gives the patient a unique code for the family to know the status of a patient
+  #
+  # @return [Integer] unique code to find family
+  def assign_family_code
+    unique = false
+    until unique
+      code = rand(9999999999).floor
+      unless @@codes.include? code
+        @@codes << code
+        unique = true
+      end
+    end
+    update(family_code: code)
+  end
 
 end
