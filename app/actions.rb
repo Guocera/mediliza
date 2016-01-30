@@ -34,8 +34,8 @@ get '/volunteer_patient_page/search/?' do
   erb :search
 end
 
-post '/volunteer_patient_page/search/:family_code' do
+post '/volunteer_patient_page/search' do
   @patients = Patient.find_by(family_code: params[:family_code])
   @volunteers = Volunteer.all
-  redirect :volunteer_patient_page
+  erb :volunteer_patient_page
 end
