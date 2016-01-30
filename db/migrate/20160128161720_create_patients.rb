@@ -7,6 +7,7 @@ class CreatePatients < ActiveRecord::Migration
       t.belongs_to :staff, index: true
       t.string :beverage_type
       t.string :mobility_type
+      t.integer :family_code, limit: 8
       t.string :language
       t.timestamps null: false
     end

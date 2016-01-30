@@ -42,9 +42,10 @@ ActiveRecord::Schema.define(version: 20160128162658) do
     t.integer  "staff_id"
     t.string   "beverage_type"
     t.string   "mobility_type"
+    t.integer  "family_code",   limit: 8
     t.string   "language"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "patients", ["staff_id"], name: "index_patients_on_staff_id", using: :btree

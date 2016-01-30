@@ -29,3 +29,9 @@ post '/enduser2/' do
   
   erb :enduser2
 end
+
+get '/search/:family_code' do
+  @patients = Patient.find_by(family_code: params[:family_code])
+  @volunteers = Volunteer.all
+  erb :volunteer_patient_page
+end
