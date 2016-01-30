@@ -25,7 +25,7 @@ get '/enduser'  do
   erb :enduser1
 end
 
-post '/enduser2/' do
-  
+post '/enduser2/#{patient.id}' do
+  @patients = Patient.find_by(patient_id)
   erb :enduser2
 end
