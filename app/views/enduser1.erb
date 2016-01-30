@@ -46,6 +46,8 @@
                   <li><a href="index.html">Home</a></li>
                   <li><a href="/volunteer_home_page">Volunteers</a></li>
                   <li><a href="/enduser">Doctors</a></li>
+                  <li><a href="faq.html">FAQs</a></li>
+                  <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -76,7 +78,7 @@
                     <ul class="list-inline info">
                       <li><i class="fa fa-user-md"></i> <a href="/enduser2/'#{item.patient_id}'"><%="#{item.first_name}, #{item.last_name}"%></a></li>
                       <li><i class="fa fa-calendar"></i> <%="Admitted: #{item.created_at.strftime('%x')}"%></li>
-                      <li><i class="fa fa-comment"></i><%="#{item.interactions[0].observation}"%></li>
+ 
                     </ul>
                   </div>
             </main>
