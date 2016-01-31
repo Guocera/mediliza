@@ -15,18 +15,13 @@ get '/volunteer_home_page' do
 end
 
 
-get '/volunteer_patient_page' do
-  erb :volunteer_patient_page
-end
-
-
 get '/enduser'  do
   @patients = Patient.all
   erb :enduser1
 end
 
-post '/enduser2/' do
-  
+get '/enduser2' do 
+  @chosen = Patient.id(params[:p])
   erb :enduser2
 end
 
@@ -46,3 +41,4 @@ pp @patients
     erb :search
   end 
 end
+
