@@ -29,7 +29,7 @@ get '/volunteer_patient_page/search/?' do
   erb :search
 end
 
-post '/volunteer_patient_page/search' do
+get '/volunteer_patient_page/search/result/?' do
 @patients = Patient.find_by(family_code: params[:family_code])
 pp @patients
   if @patients
@@ -41,4 +41,3 @@ pp @patients
     erb :search
   end 
 end
-
