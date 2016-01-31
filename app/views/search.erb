@@ -11,6 +11,6 @@
 
 <form action="/volunteer_patient_page/search" method="post">
   <label>Enter your family code:</label>
-  <input type=text name="family_code" placeholder="Numerical Code" value="<%= @patients && @patients.family_code %>" />
+  <input type=text name="family_code" placeholder="10-Digit Numerical Code" value="<%= @patients && @patients.family_code %>" />
   <input type=submit name="Submit" />
 </form>
