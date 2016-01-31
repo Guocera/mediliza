@@ -18,8 +18,6 @@ class Patient < ActiveRecord::Base
   default_scope { order(first_name: :asc, last_name: :asc) }
   after_create :assign_family_code
 
-  @@codes = Array.new
-
   # Gives the staff member associated with the patient.
   #   
   # @return [Staff] gives the staff member associated with the patient
@@ -44,17 +42,16 @@ class Patient < ActiveRecord::Base
 
   # Gives the patient a unique code for the family to know the status of a patient
   #
-  # @return [Integer] unique code to find family
+  # @return [Integer] 10 digit unique code to find family
   def assign_family_code
     unique = false
     until unique
-      code = rand(9999999999).floor
-      unless @@codes.include? code
-        @@codes << code
+      code = rand(8999999999).floor + 1000000000
+      unless Patient.find_by(family_code: code)
         unique = true
+        update(family_code: code)
       end
     end
-    update(family_code: code)
   end
 
 end
