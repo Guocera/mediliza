@@ -1,0 +1,16 @@
+<% if @patients && @patients.errors.any? %>
+  <div>
+    <ul>
+      <% @patients.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<form action="/volunteer_patient_page/search" method="post">
+  <label>Enter your family code:</label>
+  <input type=text name="family_code" placeholder="Numerical Code" value="<%= @patients && @patients.family_code %>" />
+  <input type=submit name="Submit" />
+</form>
