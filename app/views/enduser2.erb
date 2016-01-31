@@ -23,22 +23,20 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="/volunteer_home_page">Volunteers</a></li>
-                  <li><a href="/enduser">Doctors</a></li>
-                  <li><a href="faq.html">FAQs</a></li>
-                  <li><a href="contact.html">Contact Us</a></li>
-                </ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/volunteer_home_page">Volunteers</a></li>
+                <li><a href="/enduser">Nurses</a></li>
+              </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
     </section>
-<%=item = @chosen%>
+<%item = @chosen%>
     <section class="blog-title text-center">
       <div class="blog-wrapper">
         <div class="container">
           <div class= "row">  
-            <h1 class="headline"><%="#{item.last_name}, #{item.first_name}"%></h1>
+            <h1 class="headline"><%="#{item.first_name} #{item.last_name}"%></h1>
           </div>
           </div>  
         </div>
@@ -50,12 +48,14 @@
         <div class= "container">
           <div class= "row">
             <main class="blog1col col-md-9">    
-                  <div class="col-md-8 col-sm-8">
-                    <ul class="list-inline info">
-                      <li><i class="fa fa-user-md"></i> <a href="/patient/list"><%="#{item.first_name}, #{item.last_name}"%></a></li>
-                      <li><i class="fa fa-calendar"></i> <%="Admitted: #{item.created_at.strftime('%x')}"%></li>
-                      <li><i class="fa fa-comment"></i><%=""%></li>
-                    </ul>
+                  <div class="col-md-8 col-md-8">                    
+                      <% @chosen.interactions.each do |interaction| %>
+                        <ul class="list-inline info">
+                         <li><%="Volunteer: #{interaction.volunteer.first_name} #{interaction.volunteer.last_name}"%></li>
+                        <li><i class="fa fa-calendar"></i> <%="Date: #{interaction.time.strftime('%x')}"%></li>
+                        <li><i class="fa fa-comment"></i><%="#{interaction.observation}"%></li>
+                        </ul>
+                      <% end %>                    
                   </div>
             </main>
           </div>  <!-- end of row -->
@@ -75,10 +75,10 @@
       </div>
     </section>
 
-    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/wow.min.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/js/isotope.pkgd.min.js"></script>    
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/js/wow.min.js"></script>
+    <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/js/isotope.pkgd.min.js"></script>    
 
 
 

@@ -20,8 +20,8 @@ get '/enduser'  do
   erb :enduser1
 end
 
-get '/enduser2' do 
-  @chosen = Patient.id(params[:p])
+get '/enduser2/:id' do 
+  @chosen = Patient.find_by(id: params[:id])
   erb :enduser2
 end
 
@@ -29,7 +29,7 @@ get '/volunteer_patient_page/search/?' do
   erb :search
 end
 
-get '/volunteer_patient_page/search/result/?' do
+post '/volunteer_patient_page/search' do
 @patients = Patient.find_by(family_code: params[:family_code])
 pp @patients
   if @patients
@@ -41,3 +41,4 @@ pp @patients
     erb :search
   end 
 end
+

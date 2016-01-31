@@ -44,14 +44,12 @@
                 </button>
                 <ul class="dropdown-menu text-primary">
                   <%@patients.each do |item|%>
-                  <%link = item.id%>
-                  <li><a href="/enduser2?p=<%= @item.id%>"><%="#{item.first_name}, #{item.last_name}"%></a></li>
+                  <%link=item.id%>
+                  <li><a href="/enduser2/<%=link%>"><%="#{item.first_name} #{item.last_name}"%></a></li>
                   <%end%>
                 </ul>
               </div>
             </div> 
-           <div class="row">
-           </div>
         </div>
       </div>
     </section>
