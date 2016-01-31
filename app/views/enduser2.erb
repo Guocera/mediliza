@@ -14,7 +14,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand logo" href="#">
+                <a class="navbar-brand logo" href="/">
                   <span><i class="fa fa-stethoscope"></i></span>
                   Mediliza
                 </a>
@@ -26,6 +26,8 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/volunteer_home_page">Volunteers</a></li>
                 <li><a href="/enduser">Nurses</a></li>
+                <li><a href="/volunteer_patient_page/search/?">Family</a></li>
+
               </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -54,6 +56,7 @@
                          <li><%="Volunteer: #{interaction.volunteer.first_name} #{interaction.volunteer.last_name}"%></li>
                         <li><i class="fa fa-calendar"></i> <%="Date: #{interaction.time.strftime('%x')}"%></li>
                         <li><i class="fa fa-comment"></i><%="#{interaction.observation}"%></li>
+               
                         </ul>
                       <% end %>                    
                   </div>
