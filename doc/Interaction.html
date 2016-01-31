@@ -407,12 +407,14 @@ activities done.</p>
 22
 23
 24
-25</pre>
+25
+26</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/interaction.rb', line 15</span>
 
 <span class='kw'>class</span> <span class='const'>Interaction</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
+  <span class='id identifier rubyid_default_scope'>default_scope</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
   <span class='comment'># Gives back volunteer involved in the interaction
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Volunteer] gives the volunteer involved in the interaction
@@ -484,12 +486,14 @@ activities done.</p>
 22
 23
 24
-25</pre>
+25
+26</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/interaction.rb', line 15</span>
 
 <span class='kw'>class</span> <span class='const'>Interaction</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
+  <span class='id identifier rubyid_default_scope'>default_scope</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
   <span class='comment'># Gives back volunteer involved in the interaction
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Volunteer] gives the volunteer involved in the interaction
@@ -561,12 +565,14 @@ activities done.</p>
 22
 23
 24
-25</pre>
+25
+26</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/interaction.rb', line 15</span>
 
 <span class='kw'>class</span> <span class='const'>Interaction</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
+  <span class='id identifier rubyid_default_scope'>default_scope</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
   <span class='comment'># Gives back volunteer involved in the interaction
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Volunteer] gives the volunteer involved in the interaction
@@ -638,12 +644,14 @@ activities done.</p>
 22
 23
 24
-25</pre>
+25
+26</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/interaction.rb', line 15</span>
 
 <span class='kw'>class</span> <span class='const'>Interaction</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
+  <span class='id identifier rubyid_default_scope'>default_scope</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
   <span class='comment'># Gives back volunteer involved in the interaction
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Volunteer] gives the volunteer involved in the interaction
@@ -715,12 +723,14 @@ activities done.</p>
 22
 23
 24
-25</pre>
+25
+26</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/interaction.rb', line 15</span>
 
 <span class='kw'>class</span> <span class='const'>Interaction</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
+  <span class='id identifier rubyid_default_scope'>default_scope</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
   <span class='comment'># Gives back volunteer involved in the interaction
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Volunteer] gives the volunteer involved in the interaction
@@ -792,12 +802,14 @@ activities done.</p>
 22
 23
 24
-25</pre>
+25
+26</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/interaction.rb', line 15</span>
 
 <span class='kw'>class</span> <span class='const'>Interaction</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
+  <span class='id identifier rubyid_default_scope'>default_scope</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
   <span class='comment'># Gives back volunteer involved in the interaction
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Volunteer] gives the volunteer involved in the interaction
@@ -864,10 +876,10 @@ activities done.</p>
       <pre class="lines">
 
 
-24</pre>
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/interaction.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'app/models/interaction.rb', line 25</span>
 
 <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:patient</span></pre>
     </td>
@@ -919,10 +931,10 @@ activities done.</p>
       <pre class="lines">
 
 
-19</pre>
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/interaction.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'app/models/interaction.rb', line 20</span>
 
 <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:volunteer</span></pre>
     </td>
@@ -935,7 +947,7 @@ activities done.</p>
 </div>
 
     <div id="footer">
-  Generated on Fri Jan 29 12:14:58 2016 by
+  Generated on Sun Jan 31 15:05:29 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.3).
 </div>

@@ -29,9 +29,9 @@ class Patient < ActiveRecord::Base
   #
   # @return [Array] lists all the preferences unsorted
   has_many :preferences
-  # List of all intractions with the patient unsorted
+  # List of all intractions with the patient sorted by most recent
   #
-  # @return [Array] lists all the interactions unsorted
+  # @return [Array] lists all the interactions sorted by most recent
   has_many :interactions
   
   # Lists the most recent interactions with the patient
