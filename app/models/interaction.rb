@@ -13,6 +13,7 @@
 # @attribute time
 #   @return [DateTime] time of the interaction
 class Interaction < ActiveRecord::Base
+  default_scope { order(time: :desc) }
   # Gives back volunteer involved in the interaction
   #
   # @return [Volunteer] gives the volunteer involved in the interaction
