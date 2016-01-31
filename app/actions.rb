@@ -20,12 +20,7 @@ get '/enduser'  do
   erb :enduser1
 end
 
-get '/enduser2' do
+get '/enduser2' do 
+  @chosen = Patient.id(params[:p])
   erb :enduser2
-end
-
-get '/volunteer_patient_page/:id' do
- @patients = Patient.find params[:id]
- @volunteers =  Volunteer.all
- erb :volunteer_patient_page2
 end

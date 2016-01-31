@@ -22,7 +22,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-                  <li><a href="index.html">Home</a></li>
+                  <li><a href="/">Home</a></li>
                   <li><a href="/volunteer_home_page">Volunteers</a></li>
                   <li><a href="/enduser">Nurses</a></li>
                 </ul>
@@ -37,33 +37,26 @@
           <div class= "row">  
             <h1 class="headline">Your Patients</h1>
           </div>
-          <div class="row">
-            <div class="sub-headline">
-              <p>See list of patients below.</p>
-            </div>
-          </div>  
+            <div class="row">
+              <div class="btn-group">
+                <button type="button" class="btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Patient List <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu text-primary">
+                  <%@patients.each do |item|%>
+                  <%link = item.id%>
+                  <li><a href="/enduser2?p=<%= @item.id%>"><%="#{item.first_name}, #{item.last_name}"%></a></li>
+                  <%end%>
+                </ul>
+              </div>
+            </div> 
+           <div class="row">
+           </div>
         </div>
       </div>
     </section>
 
-    <%@patients.each do |item|%>
-      <section class= "blog-content">
-        <div class= "container">
-          <div class= "row">
-            <main class="blog1col col-md-9">    
-                  <div class="col-md-8 col-sm-8">
-                    <ul class="list-inline info">
-                      <li><i class="fa fa-user-md"></i> <a href="/enduser2/"><%="#{item.first_name}, #{item.last_name}"%></a></li>
-                      <li><i class="fa fa-calendar"></i> <%="Admitted: #{item.created_at.strftime('%x')}"%></li>
- 
-                    </ul>
-                  </div>
-            </main>
-          </div>  <!-- end of row -->
-        </div>  <!-- end of container -->
-      </section>
-    <%end%>  
-
+    
     <section id="footer">
       <div class="container">
         <div class="row">

@@ -1,25 +1,5 @@
-<!DOCTYPE html>
-
-<html>
-
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="img/season-change.jpg" type="image/x-icon">
-    <title>Mediliza</title>
-
-      <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-      <!-- <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
-      <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:300,400,500,700' rel='stylesheet' type='text/css'> -->
-      <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
-      <link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600' rel='stylesheet' type='text/css'>
-      
-
-    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    
   </head>
 
   <body>
@@ -53,23 +33,19 @@
         </div><!-- /.container-fluid -->
       </nav>
     </section>
-
+<%=item = @chosen%>
     <section class="blog-title text-center">
       <div class="blog-wrapper">
         <div class="container">
           <div class= "row">  
-            <h1 class="headline">Your Patients</h1>
+            <h1 class="headline"><%="#{item.last_name}, #{item.first_name}"%></h1>
           </div>
-          <div class="row">
-            <div class="sub-headline">
-              <p>See list of patients below.</p>
-            </div>
           </div>  
         </div>
       </div>
     </section>
 
-    <%@patients.each do |item|%>
+    
       <section class= "blog-content">
         <div class= "container">
           <div class= "row">
@@ -85,7 +61,7 @@
           </div>  <!-- end of row -->
         </div>  <!-- end of container -->
       </section>
-    <%end%>  
+  
 
     <section id="footer">
       <div class="container">
@@ -111,4 +87,3 @@
     </script>
 
   </body>
-</html>
