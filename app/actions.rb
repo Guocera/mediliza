@@ -70,14 +70,14 @@ get '/search/?' do
 end
 
 get '/search/results' do
-  @patient = Patient.find_by(family_code: params[:family_code])
+  @patient = Patient.find_by(family_code: params[:family_code], last_name: params[:last_name])
   if @patient
     @volunteers = Volunteer.all
     session[:fid] = params[:family_code]
     erb :volunteer_patient_page
   else
-    @patient = Patient.new(family_code: params[:family_code])
-    @patient.errors.add(:family_code, 'was incorrect.')
+    @patient = Patient.new(family_code: params[:family_code], last_name: params[:last_name])
+    @patient.errors.add(:family_code, 'or last name was incorrect.')
     erb :search
   end 
 end

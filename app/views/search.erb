@@ -79,6 +79,7 @@
                     </h3>
                       <form action="/search/results" method="get">
                         <h3><input type=text name="family_code" placeholder="10-Digit Code" value="<%= @patient && @patient.family_code %>" /></h3>
+                        <h3><input type=text name="last_name" placeholder="Patient Last Name" value="<%= @patient && @patient.last_name %>" /></h3>
                         <p><button style="
                                             background-color: #67B2C1; 
                                             border: none;border: none;
