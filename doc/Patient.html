@@ -352,31 +352,6 @@ volunteers.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#assign_family_code-instance_method" title="#assign_family_code (instance method)">- (Integer) <strong>assign_family_code</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Gives the patient a unique code for the family to know the status of a
-patient.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#dislikes-instance_method" title="#dislikes (instance method)">- (Array) <strong>dislikes</strong> </a>
     
 
@@ -518,6 +493,30 @@ patient.</p>
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#today_walking_time-instance_method" title="#today_walking_time (instance method)">- (Integer) <strong>today_walking_time</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Gives the total walking time of a patient for today.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -626,7 +625,14 @@ patient.</p>
 70
 71
 72
-73</pre>
+73
+74
+75
+76
+77
+78
+79
+80</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 19</span>
@@ -657,20 +663,6 @@ patient.</p>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
-  <span class='comment'># Gives the patient a unique code for the family to know the status of a patient
-</span>  <span class='comment'>#
-</span>  <span class='comment'># @return [Integer] 10 digit unique code to find family
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
-    <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
-    <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
-      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
-      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
-        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
-      <span class='kw'>end</span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
-
   <span class='comment'># Gives back a list of all patient&#39;s likes
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Array] list of all patient&#39;s likes
@@ -684,6 +676,27 @@ patient.</p>
 </span>  <span class='kw'>def</span> <span class='id identifier rubyid_dislikes'>dislikes</span>
     <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
+
+  <span class='comment'># Gives the total walking time of a patient for today
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Integer] today&#39;s total walking time
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_today_walking_time'>today_walking_time</span>
+    <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_beginning_of_day'>beginning_of_day</span><span class='op'>..</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_end_of_day'>end_of_day</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='symbol'>:walking_duration</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_private'>private</span>
+  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
+    <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
+      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
+      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+
 
 <span class='kw'>end</span></pre>
     </td>
@@ -791,7 +804,14 @@ patient.</p>
 70
 71
 72
-73</pre>
+73
+74
+75
+76
+77
+78
+79
+80</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 19</span>
@@ -822,20 +842,6 @@ patient.</p>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
-  <span class='comment'># Gives the patient a unique code for the family to know the status of a patient
-</span>  <span class='comment'>#
-</span>  <span class='comment'># @return [Integer] 10 digit unique code to find family
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
-    <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
-    <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
-      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
-      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
-        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
-      <span class='kw'>end</span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
-
   <span class='comment'># Gives back a list of all patient&#39;s likes
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Array] list of all patient&#39;s likes
@@ -849,6 +855,27 @@ patient.</p>
 </span>  <span class='kw'>def</span> <span class='id identifier rubyid_dislikes'>dislikes</span>
     <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
+
+  <span class='comment'># Gives the total walking time of a patient for today
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Integer] today&#39;s total walking time
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_today_walking_time'>today_walking_time</span>
+    <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_beginning_of_day'>beginning_of_day</span><span class='op'>..</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_end_of_day'>end_of_day</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='symbol'>:walking_duration</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_private'>private</span>
+  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
+    <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
+      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
+      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+
 
 <span class='kw'>end</span></pre>
     </td>
@@ -956,7 +983,14 @@ patient.</p>
 70
 71
 72
-73</pre>
+73
+74
+75
+76
+77
+78
+79
+80</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 19</span>
@@ -987,20 +1021,6 @@ patient.</p>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
-  <span class='comment'># Gives the patient a unique code for the family to know the status of a patient
-</span>  <span class='comment'>#
-</span>  <span class='comment'># @return [Integer] 10 digit unique code to find family
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
-    <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
-    <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
-      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
-      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
-        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
-      <span class='kw'>end</span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
-
   <span class='comment'># Gives back a list of all patient&#39;s likes
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Array] list of all patient&#39;s likes
@@ -1014,6 +1034,27 @@ patient.</p>
 </span>  <span class='kw'>def</span> <span class='id identifier rubyid_dislikes'>dislikes</span>
     <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
+
+  <span class='comment'># Gives the total walking time of a patient for today
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Integer] today&#39;s total walking time
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_today_walking_time'>today_walking_time</span>
+    <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_beginning_of_day'>beginning_of_day</span><span class='op'>..</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_end_of_day'>end_of_day</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='symbol'>:walking_duration</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_private'>private</span>
+  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
+    <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
+      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
+      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+
 
 <span class='kw'>end</span></pre>
     </td>
@@ -1121,7 +1162,14 @@ patient.</p>
 70
 71
 72
-73</pre>
+73
+74
+75
+76
+77
+78
+79
+80</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 19</span>
@@ -1152,20 +1200,6 @@ patient.</p>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
-  <span class='comment'># Gives the patient a unique code for the family to know the status of a patient
-</span>  <span class='comment'>#
-</span>  <span class='comment'># @return [Integer] 10 digit unique code to find family
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
-    <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
-    <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
-      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
-      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
-        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
-      <span class='kw'>end</span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
-
   <span class='comment'># Gives back a list of all patient&#39;s likes
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Array] list of all patient&#39;s likes
@@ -1179,6 +1213,27 @@ patient.</p>
 </span>  <span class='kw'>def</span> <span class='id identifier rubyid_dislikes'>dislikes</span>
     <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
+
+  <span class='comment'># Gives the total walking time of a patient for today
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Integer] today&#39;s total walking time
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_today_walking_time'>today_walking_time</span>
+    <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_beginning_of_day'>beginning_of_day</span><span class='op'>..</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_end_of_day'>end_of_day</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='symbol'>:walking_duration</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_private'>private</span>
+  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
+    <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
+      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
+      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+
 
 <span class='kw'>end</span></pre>
     </td>
@@ -1286,7 +1341,14 @@ patient.</p>
 70
 71
 72
-73</pre>
+73
+74
+75
+76
+77
+78
+79
+80</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 19</span>
@@ -1317,20 +1379,6 @@ patient.</p>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
-  <span class='comment'># Gives the patient a unique code for the family to know the status of a patient
-</span>  <span class='comment'>#
-</span>  <span class='comment'># @return [Integer] 10 digit unique code to find family
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
-    <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
-    <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
-      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
-      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
-        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
-      <span class='kw'>end</span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
-
   <span class='comment'># Gives back a list of all patient&#39;s likes
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Array] list of all patient&#39;s likes
@@ -1344,6 +1392,27 @@ patient.</p>
 </span>  <span class='kw'>def</span> <span class='id identifier rubyid_dislikes'>dislikes</span>
     <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
+
+  <span class='comment'># Gives the total walking time of a patient for today
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Integer] today&#39;s total walking time
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_today_walking_time'>today_walking_time</span>
+    <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_beginning_of_day'>beginning_of_day</span><span class='op'>..</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_end_of_day'>end_of_day</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='symbol'>:walking_duration</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_private'>private</span>
+  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
+    <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
+      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
+      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+
 
 <span class='kw'>end</span></pre>
     </td>
@@ -1451,7 +1520,14 @@ patient.</p>
 70
 71
 72
-73</pre>
+73
+74
+75
+76
+77
+78
+79
+80</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 19</span>
@@ -1482,20 +1558,6 @@ patient.</p>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
-  <span class='comment'># Gives the patient a unique code for the family to know the status of a patient
-</span>  <span class='comment'>#
-</span>  <span class='comment'># @return [Integer] 10 digit unique code to find family
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
-    <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
-    <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
-      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
-      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
-        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
-      <span class='kw'>end</span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
-
   <span class='comment'># Gives back a list of all patient&#39;s likes
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Array] list of all patient&#39;s likes
@@ -1509,6 +1571,27 @@ patient.</p>
 </span>  <span class='kw'>def</span> <span class='id identifier rubyid_dislikes'>dislikes</span>
     <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
+
+  <span class='comment'># Gives the total walking time of a patient for today
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Integer] today&#39;s total walking time
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_today_walking_time'>today_walking_time</span>
+    <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_beginning_of_day'>beginning_of_day</span><span class='op'>..</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_end_of_day'>end_of_day</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='symbol'>:walking_duration</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_private'>private</span>
+  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
+    <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
+      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
+      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+
 
 <span class='kw'>end</span></pre>
     </td>
@@ -1616,7 +1699,14 @@ patient.</p>
 70
 71
 72
-73</pre>
+73
+74
+75
+76
+77
+78
+79
+80</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 19</span>
@@ -1647,20 +1737,6 @@ patient.</p>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
-  <span class='comment'># Gives the patient a unique code for the family to know the status of a patient
-</span>  <span class='comment'>#
-</span>  <span class='comment'># @return [Integer] 10 digit unique code to find family
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
-    <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
-    <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
-      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
-      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
-        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
-      <span class='kw'>end</span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
-
   <span class='comment'># Gives back a list of all patient&#39;s likes
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Array] list of all patient&#39;s likes
@@ -1674,6 +1750,27 @@ patient.</p>
 </span>  <span class='kw'>def</span> <span class='id identifier rubyid_dislikes'>dislikes</span>
     <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
+
+  <span class='comment'># Gives the total walking time of a patient for today
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Integer] today&#39;s total walking time
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_today_walking_time'>today_walking_time</span>
+    <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_beginning_of_day'>beginning_of_day</span><span class='op'>..</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_end_of_day'>end_of_day</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='symbol'>:walking_duration</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_private'>private</span>
+  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
+    <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
+      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
+      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+
 
 <span class='kw'>end</span></pre>
     </td>
@@ -1781,7 +1878,14 @@ patient.</p>
 70
 71
 72
-73</pre>
+73
+74
+75
+76
+77
+78
+79
+80</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 19</span>
@@ -1812,20 +1916,6 @@ patient.</p>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
-  <span class='comment'># Gives the patient a unique code for the family to know the status of a patient
-</span>  <span class='comment'>#
-</span>  <span class='comment'># @return [Integer] 10 digit unique code to find family
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
-    <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
-    <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
-      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
-      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
-        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
-      <span class='kw'>end</span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
-
   <span class='comment'># Gives back a list of all patient&#39;s likes
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Array] list of all patient&#39;s likes
@@ -1839,6 +1929,27 @@ patient.</p>
 </span>  <span class='kw'>def</span> <span class='id identifier rubyid_dislikes'>dislikes</span>
     <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
+
+  <span class='comment'># Gives the total walking time of a patient for today
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Integer] today&#39;s total walking time
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_today_walking_time'>today_walking_time</span>
+    <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_beginning_of_day'>beginning_of_day</span><span class='op'>..</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_end_of_day'>end_of_day</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='symbol'>:walking_duration</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_private'>private</span>
+  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
+    <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
+      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
+      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+
 
 <span class='kw'>end</span></pre>
     </td>
@@ -1854,81 +1965,7 @@ patient.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="assign_family_code-instance_method">
-  
-    - (<tt>Integer</tt>) <strong>assign_family_code</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Gives the patient a unique code for the family to know the status of a
-patient</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>10 digit unique code to find family</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 48</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
-  <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
-  <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
-    <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
-    <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
-      <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="dislikes-instance_method">
+  <h3 class="signature first" id="dislikes-instance_method">
   
     - (<tt>Array</tt>) <strong>dislikes</strong> 
   
@@ -1971,12 +2008,12 @@ patient</p>
       <pre class="lines">
 
 
-69
-70
-71</pre>
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_dislikes'>dislikes</span>
   <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>false</span><span class='rparen'>)</span>
@@ -2164,12 +2201,12 @@ patient</p>
       <pre class="lines">
 
 
-62
-63
-64</pre>
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_likes'>likes</span>
   <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>true</span><span class='rparen'>)</span>
@@ -2289,12 +2326,71 @@ patient</p>
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="today_walking_time-instance_method">
+  
+    - (<tt>Integer</tt>) <strong>today_walking_time</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Gives the total walking time of a patient for today</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>today&#39;s total walking time</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 62</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_today_walking_time'>today_walking_time</span>
+  <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_beginning_of_day'>beginning_of_day</span><span class='op'>..</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_end_of_day'>end_of_day</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='symbol'>:walking_duration</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
     <div id="footer">
-  Generated on Mon Feb  1 06:46:51 2016 by
+  Generated on Mon Feb  1 09:48:21 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.3).
 </div>

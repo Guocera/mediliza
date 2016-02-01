@@ -42,20 +42,6 @@ class Patient < ActiveRecord::Base
     interactions.order(time: :desc).limit(num)
   end
 
-  # Gives the patient a unique code for the family to know the status of a patient
-  #
-  # @return [Integer] 10 digit unique code to find family
-  def assign_family_code
-    unique = false
-    until unique
-      code = rand(8999999999).floor + 1000000000
-      unless Patient.find_by(family_code: code)
-        unique = true
-        update(family_code: code)
-      end
-    end
-  end
-
   # Gives back a list of all patient's likes
   #
   # @return [Array] list of all patient's likes
@@ -69,5 +55,26 @@ class Patient < ActiveRecord::Base
   def dislikes
     preferences.where(likes: false)
   end
+
+  # Gives the total walking time of a patient for today
+  #
+  # @return [Integer] today's total walking time
+  def today_walking_time
+    interactions.where(time: Date.today.beginning_of_day..Date.today.end_of_day).sum(:walking_duration)
+  end
+
+  private
+  def assign_family_code
+    unique = false
+    until unique
+      code = rand(8999999999).floor + 1000000000
+      unless Patient.find_by(family_code: code)
+        unique = true
+        update(family_code: code)
+      end
+    end
+  end
+
+
 
 end

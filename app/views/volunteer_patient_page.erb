@@ -165,6 +165,7 @@
                               <td><%="Date:"%></td>
                               <td><%="Observation & Activities:"%></td>
                               <td><%="Walking duration (min):"%></td>
+                              <td><%="Drank fluids:"%></td>
                             </tr>
                             <% @patient.last_interactions.each do |interaction| %>
                               <tr>
@@ -172,6 +173,11 @@
                                 <td><%="#{interaction.time.strftime('%x')}"%></td>
                                 <td><%="#{interaction.observation}"%></td>
                                 <td><%="#{interaction.walking_duration}"%></td>
+                                <% if interaction.beverage %>
+                                  <td>Drank fluids</td>
+                                <% else %>
+                                  <td>Did not drink</td>
+                                <% end %>
                               </tr>
                             <% end %>
                           </table>
