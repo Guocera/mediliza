@@ -18,6 +18,10 @@ get '/logout' do
   redirect '/'
 end
 
+get '/team/?' do
+  erb :team
+end
+
 get '/volunteer_home_page/?' do
   session.clear
   @patients =  Patient.all
