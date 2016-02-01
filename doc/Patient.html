@@ -496,7 +496,7 @@ volunteers.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#today_walking_time-instance_method" title="#today_walking_time (instance method)">- (Integer) <strong>today_walking_time</strong> </a>
+      <a href="#todays_walking_time-instance_method" title="#todays_walking_time (instance method)">- (Integer) <strong>todays_walking_time</strong> </a>
     
 
     
@@ -680,7 +680,7 @@ volunteers.</p>
   <span class='comment'># Gives the total walking time of a patient for today
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Integer] today&#39;s total walking time
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_today_walking_time'>today_walking_time</span>
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_todays_walking_time'>todays_walking_time</span>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_beginning_of_day'>beginning_of_day</span><span class='op'>..</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_end_of_day'>end_of_day</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='symbol'>:walking_duration</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
@@ -859,7 +859,7 @@ volunteers.</p>
   <span class='comment'># Gives the total walking time of a patient for today
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Integer] today&#39;s total walking time
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_today_walking_time'>today_walking_time</span>
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_todays_walking_time'>todays_walking_time</span>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_beginning_of_day'>beginning_of_day</span><span class='op'>..</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_end_of_day'>end_of_day</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='symbol'>:walking_duration</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
@@ -1038,7 +1038,7 @@ volunteers.</p>
   <span class='comment'># Gives the total walking time of a patient for today
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Integer] today&#39;s total walking time
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_today_walking_time'>today_walking_time</span>
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_todays_walking_time'>todays_walking_time</span>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_beginning_of_day'>beginning_of_day</span><span class='op'>..</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_end_of_day'>end_of_day</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='symbol'>:walking_duration</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
@@ -1217,7 +1217,7 @@ volunteers.</p>
   <span class='comment'># Gives the total walking time of a patient for today
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Integer] today&#39;s total walking time
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_today_walking_time'>today_walking_time</span>
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_todays_walking_time'>todays_walking_time</span>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_beginning_of_day'>beginning_of_day</span><span class='op'>..</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_end_of_day'>end_of_day</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='symbol'>:walking_duration</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
@@ -1396,7 +1396,7 @@ volunteers.</p>
   <span class='comment'># Gives the total walking time of a patient for today
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Integer] today&#39;s total walking time
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_today_walking_time'>today_walking_time</span>
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_todays_walking_time'>todays_walking_time</span>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_beginning_of_day'>beginning_of_day</span><span class='op'>..</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_end_of_day'>end_of_day</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='symbol'>:walking_duration</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
@@ -1575,7 +1575,7 @@ volunteers.</p>
   <span class='comment'># Gives the total walking time of a patient for today
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Integer] today&#39;s total walking time
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_today_walking_time'>today_walking_time</span>
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_todays_walking_time'>todays_walking_time</span>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_beginning_of_day'>beginning_of_day</span><span class='op'>..</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_end_of_day'>end_of_day</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='symbol'>:walking_duration</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
@@ -1754,7 +1754,7 @@ volunteers.</p>
   <span class='comment'># Gives the total walking time of a patient for today
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Integer] today&#39;s total walking time
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_today_walking_time'>today_walking_time</span>
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_todays_walking_time'>todays_walking_time</span>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_beginning_of_day'>beginning_of_day</span><span class='op'>..</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_end_of_day'>end_of_day</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='symbol'>:walking_duration</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
@@ -1933,7 +1933,7 @@ volunteers.</p>
   <span class='comment'># Gives the total walking time of a patient for today
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Integer] today&#39;s total walking time
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_today_walking_time'>today_walking_time</span>
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_todays_walking_time'>todays_walking_time</span>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_beginning_of_day'>beginning_of_day</span><span class='op'>..</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_end_of_day'>end_of_day</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='symbol'>:walking_duration</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
@@ -2327,9 +2327,9 @@ volunteers.</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="today_walking_time-instance_method">
+  <h3 class="signature " id="todays_walking_time-instance_method">
   
-    - (<tt>Integer</tt>) <strong>today_walking_time</strong> 
+    - (<tt>Integer</tt>) <strong>todays_walking_time</strong> 
   
 
   
@@ -2377,7 +2377,7 @@ volunteers.</p>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 62</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_today_walking_time'>today_walking_time</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_todays_walking_time'>todays_walking_time</span>
   <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_beginning_of_day'>beginning_of_day</span><span class='op'>..</span><span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_today'>today</span><span class='period'>.</span><span class='id identifier rubyid_end_of_day'>end_of_day</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sum'>sum</span><span class='lparen'>(</span><span class='symbol'>:walking_duration</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2390,7 +2390,7 @@ volunteers.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Feb  1 09:48:21 2016 by
+  Generated on Mon Feb  1 09:50:03 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.3).
 </div>

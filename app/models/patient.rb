@@ -59,7 +59,7 @@ class Patient < ActiveRecord::Base
   # Gives the total walking time of a patient for today
   #
   # @return [Integer] today's total walking time
-  def today_walking_time
+  def todays_walking_time
     interactions.where(time: Date.today.beginning_of_day..Date.today.end_of_day).sum(:walking_duration)
   end
 
