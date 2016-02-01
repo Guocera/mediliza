@@ -13,10 +13,16 @@ get '/?' do
   erb :index
 end
 
+get '/logout' do
+  session.clear
+  redirect '/'
+end
+
 get '/volunteer_home_page/?' do
   @patients =  Patient.all
   @volunteer =  Volunteer.first
   session[:vid] = @volunteer.id
+  session[:expires] = 1.week.from_now
   erb :volunteer_home_page
 end
 

@@ -48,7 +48,6 @@
                <li><a href="/enduser">Nurses</a></li>
                <li><a href="/volunteer_patient_page/search/?">Family</a></li>
                 <% if session[:vid] %>
-                  <% session.clear %>
                   <li><a href="/">Logout</a></li>
                 <% end %>
              </ul>
@@ -71,7 +70,7 @@
               <ul class="dropdown-menu text-primary">
                 <%@patients.each do |item|%>
                 <%link=item.id%>
-                <li><a href="/enduser2/<%=link%>"><%="#{item.first_name} #{item.last_name}"%></a></li>
+                <li><a href="/volunteer_patient_page/<%=link%>"><%="#{item.first_name} #{item.last_name}"%></a></li>
                 <%end%>
               </ul>
             </div>  
