@@ -114,18 +114,6 @@ volunteers.</p>
   
 
 </div>
-  <h2>Constant Summary</h2>
-  
-    <dl class="constants">
-      
-        <dt id="codes-classvariable" class="">@@codes =
-          
-        </dt>
-        <dd><pre class="code"><span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span></pre></dd>
-      
-    </dl>
-  
-
 
 
 
@@ -549,10 +537,7 @@ patient.</p>
 54
 55
 56
-57
-58
-59
-60</pre>
+57</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 17</span>
@@ -560,8 +545,6 @@ patient.</p>
 <span class='kw'>class</span> <span class='const'>Patient</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
   <span class='id identifier rubyid_default_scope'>default_scope</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>first_name:</span> <span class='symbol'>:asc</span><span class='comma'>,</span> <span class='label'>last_name:</span> <span class='symbol'>:asc</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_after_create'>after_create</span> <span class='symbol'>:assign_family_code</span>
-
-  <span class='cvar'>@@codes</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
 
   <span class='comment'># Gives the staff member associated with the patient.
 </span>  <span class='comment'>#   
@@ -587,17 +570,16 @@ patient.</p>
 
   <span class='comment'># Gives the patient a unique code for the family to know the status of a patient
 </span>  <span class='comment'>#
-</span>  <span class='comment'># @return [Integer] unique code to find family
+</span>  <span class='comment'># @return [Integer] 10 digit unique code to find family
 </span>  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
     <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
     <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
-      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>9999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span>
-      <span class='kw'>unless</span> <span class='cvar'>@@codes</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_code'>code</span>
-        <span class='cvar'>@@codes</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_code'>code</span>
+      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
+      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
         <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
-    <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
 <span class='kw'>end</span></pre>
@@ -692,10 +674,7 @@ patient.</p>
 54
 55
 56
-57
-58
-59
-60</pre>
+57</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 17</span>
@@ -703,8 +682,6 @@ patient.</p>
 <span class='kw'>class</span> <span class='const'>Patient</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
   <span class='id identifier rubyid_default_scope'>default_scope</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>first_name:</span> <span class='symbol'>:asc</span><span class='comma'>,</span> <span class='label'>last_name:</span> <span class='symbol'>:asc</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_after_create'>after_create</span> <span class='symbol'>:assign_family_code</span>
-
-  <span class='cvar'>@@codes</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
 
   <span class='comment'># Gives the staff member associated with the patient.
 </span>  <span class='comment'>#   
@@ -730,17 +707,16 @@ patient.</p>
 
   <span class='comment'># Gives the patient a unique code for the family to know the status of a patient
 </span>  <span class='comment'>#
-</span>  <span class='comment'># @return [Integer] unique code to find family
+</span>  <span class='comment'># @return [Integer] 10 digit unique code to find family
 </span>  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
     <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
     <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
-      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>9999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span>
-      <span class='kw'>unless</span> <span class='cvar'>@@codes</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_code'>code</span>
-        <span class='cvar'>@@codes</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_code'>code</span>
+      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
+      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
         <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
-    <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
 <span class='kw'>end</span></pre>
@@ -835,10 +811,7 @@ patient.</p>
 54
 55
 56
-57
-58
-59
-60</pre>
+57</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 17</span>
@@ -846,8 +819,6 @@ patient.</p>
 <span class='kw'>class</span> <span class='const'>Patient</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
   <span class='id identifier rubyid_default_scope'>default_scope</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>first_name:</span> <span class='symbol'>:asc</span><span class='comma'>,</span> <span class='label'>last_name:</span> <span class='symbol'>:asc</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_after_create'>after_create</span> <span class='symbol'>:assign_family_code</span>
-
-  <span class='cvar'>@@codes</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
 
   <span class='comment'># Gives the staff member associated with the patient.
 </span>  <span class='comment'>#   
@@ -873,17 +844,16 @@ patient.</p>
 
   <span class='comment'># Gives the patient a unique code for the family to know the status of a patient
 </span>  <span class='comment'>#
-</span>  <span class='comment'># @return [Integer] unique code to find family
+</span>  <span class='comment'># @return [Integer] 10 digit unique code to find family
 </span>  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
     <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
     <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
-      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>9999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span>
-      <span class='kw'>unless</span> <span class='cvar'>@@codes</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_code'>code</span>
-        <span class='cvar'>@@codes</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_code'>code</span>
+      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
+      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
         <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
-    <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
 <span class='kw'>end</span></pre>
@@ -978,10 +948,7 @@ patient.</p>
 54
 55
 56
-57
-58
-59
-60</pre>
+57</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 17</span>
@@ -989,8 +956,6 @@ patient.</p>
 <span class='kw'>class</span> <span class='const'>Patient</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
   <span class='id identifier rubyid_default_scope'>default_scope</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>first_name:</span> <span class='symbol'>:asc</span><span class='comma'>,</span> <span class='label'>last_name:</span> <span class='symbol'>:asc</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_after_create'>after_create</span> <span class='symbol'>:assign_family_code</span>
-
-  <span class='cvar'>@@codes</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
 
   <span class='comment'># Gives the staff member associated with the patient.
 </span>  <span class='comment'>#   
@@ -1016,17 +981,16 @@ patient.</p>
 
   <span class='comment'># Gives the patient a unique code for the family to know the status of a patient
 </span>  <span class='comment'>#
-</span>  <span class='comment'># @return [Integer] unique code to find family
+</span>  <span class='comment'># @return [Integer] 10 digit unique code to find family
 </span>  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
     <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
     <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
-      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>9999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span>
-      <span class='kw'>unless</span> <span class='cvar'>@@codes</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_code'>code</span>
-        <span class='cvar'>@@codes</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_code'>code</span>
+      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
+      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
         <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
-    <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
 <span class='kw'>end</span></pre>
@@ -1121,10 +1085,7 @@ patient.</p>
 54
 55
 56
-57
-58
-59
-60</pre>
+57</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 17</span>
@@ -1132,8 +1093,6 @@ patient.</p>
 <span class='kw'>class</span> <span class='const'>Patient</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
   <span class='id identifier rubyid_default_scope'>default_scope</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>first_name:</span> <span class='symbol'>:asc</span><span class='comma'>,</span> <span class='label'>last_name:</span> <span class='symbol'>:asc</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_after_create'>after_create</span> <span class='symbol'>:assign_family_code</span>
-
-  <span class='cvar'>@@codes</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
 
   <span class='comment'># Gives the staff member associated with the patient.
 </span>  <span class='comment'>#   
@@ -1159,17 +1118,16 @@ patient.</p>
 
   <span class='comment'># Gives the patient a unique code for the family to know the status of a patient
 </span>  <span class='comment'>#
-</span>  <span class='comment'># @return [Integer] unique code to find family
+</span>  <span class='comment'># @return [Integer] 10 digit unique code to find family
 </span>  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
     <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
     <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
-      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>9999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span>
-      <span class='kw'>unless</span> <span class='cvar'>@@codes</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_code'>code</span>
-        <span class='cvar'>@@codes</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_code'>code</span>
+      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
+      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
         <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
-    <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
 <span class='kw'>end</span></pre>
@@ -1264,10 +1222,7 @@ patient.</p>
 54
 55
 56
-57
-58
-59
-60</pre>
+57</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 17</span>
@@ -1275,8 +1230,6 @@ patient.</p>
 <span class='kw'>class</span> <span class='const'>Patient</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
   <span class='id identifier rubyid_default_scope'>default_scope</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>first_name:</span> <span class='symbol'>:asc</span><span class='comma'>,</span> <span class='label'>last_name:</span> <span class='symbol'>:asc</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_after_create'>after_create</span> <span class='symbol'>:assign_family_code</span>
-
-  <span class='cvar'>@@codes</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
 
   <span class='comment'># Gives the staff member associated with the patient.
 </span>  <span class='comment'>#   
@@ -1302,17 +1255,16 @@ patient.</p>
 
   <span class='comment'># Gives the patient a unique code for the family to know the status of a patient
 </span>  <span class='comment'>#
-</span>  <span class='comment'># @return [Integer] unique code to find family
+</span>  <span class='comment'># @return [Integer] 10 digit unique code to find family
 </span>  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
     <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
     <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
-      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>9999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span>
-      <span class='kw'>unless</span> <span class='cvar'>@@codes</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_code'>code</span>
-        <span class='cvar'>@@codes</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_code'>code</span>
+      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
+      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
         <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
-    <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
 <span class='kw'>end</span></pre>
@@ -1407,10 +1359,7 @@ patient.</p>
 54
 55
 56
-57
-58
-59
-60</pre>
+57</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 17</span>
@@ -1418,8 +1367,6 @@ patient.</p>
 <span class='kw'>class</span> <span class='const'>Patient</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
   <span class='id identifier rubyid_default_scope'>default_scope</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>first_name:</span> <span class='symbol'>:asc</span><span class='comma'>,</span> <span class='label'>last_name:</span> <span class='symbol'>:asc</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_after_create'>after_create</span> <span class='symbol'>:assign_family_code</span>
-
-  <span class='cvar'>@@codes</span> <span class='op'>=</span> <span class='const'>Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
 
   <span class='comment'># Gives the staff member associated with the patient.
 </span>  <span class='comment'>#   
@@ -1445,17 +1392,16 @@ patient.</p>
 
   <span class='comment'># Gives the patient a unique code for the family to know the status of a patient
 </span>  <span class='comment'>#
-</span>  <span class='comment'># @return [Integer] unique code to find family
+</span>  <span class='comment'># @return [Integer] 10 digit unique code to find family
 </span>  <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
     <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
     <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
-      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>9999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span>
-      <span class='kw'>unless</span> <span class='cvar'>@@codes</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_code'>code</span>
-        <span class='cvar'>@@codes</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_code'>code</span>
+      <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
+      <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
         <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
+        <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
-    <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
 <span class='kw'>end</span></pre>
@@ -1503,7 +1449,7 @@ patient</p>
       
         &mdash;
         <div class='inline'>
-<p>unique code to find family</p>
+<p>10 digit unique code to find family</p>
 </div>
       
     </li>
@@ -1516,6 +1462,8 @@ patient</p>
       <pre class="lines">
 
 
+46
+47
 48
 49
 50
@@ -1523,24 +1471,20 @@ patient</p>
 52
 53
 54
-55
-56
-57
-58</pre>
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_assign_family_code'>assign_family_code</span>
   <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>false</span>
   <span class='kw'>until</span> <span class='id identifier rubyid_unique'>unique</span>
-    <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>9999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span>
-    <span class='kw'>unless</span> <span class='cvar'>@@codes</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_code'>code</span>
-      <span class='cvar'>@@codes</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_code'>code</span>
+    <span class='id identifier rubyid_code'>code</span> <span class='op'>=</span> <span class='id identifier rubyid_rand'>rand</span><span class='lparen'>(</span><span class='int'>8999999999</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_floor'>floor</span> <span class='op'>+</span> <span class='int'>1000000000</span>
+    <span class='kw'>unless</span> <span class='const'>Patient</span><span class='period'>.</span><span class='id identifier rubyid_find_by'>find_by</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_unique'>unique</span> <span class='op'>=</span> <span class='kw'>true</span>
+      <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
-  <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1591,10 +1535,10 @@ patient</p>
       <pre class="lines">
 
 
-35</pre>
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 33</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:interactions</span></pre>
     </td>
@@ -1666,12 +1610,12 @@ patient</p>
       <pre class="lines">
 
 
-41
-42
-43</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_last_interaction'>last_interaction</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
@@ -1725,10 +1669,10 @@ patient</p>
       <pre class="lines">
 
 
-31</pre>
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 29</span>
 
 <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:preferences</span></pre>
     </td>
@@ -1780,10 +1724,10 @@ patient</p>
       <pre class="lines">
 
 
-26</pre>
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 24</span>
 
 <span class='id identifier rubyid_belongs_to'>belongs_to</span> <span class='symbol'>:staff</span></pre>
     </td>
@@ -1796,7 +1740,7 @@ patient</p>
 </div>
 
     <div id="footer">
-  Generated on Sun Jan 31 15:05:29 2016 by
+  Generated on Sun Jan 31 15:50:24 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.3).
 </div>
