@@ -27,7 +27,9 @@
                 <li><a href="/volunteer_home_page">Volunteers</a></li>
                 <li><a href="/enduser">Nurses</a></li>
                 <li><a href="/volunteer_patient_page/search/?">Family</a></li>
-
+                <% if session[:sid] %>
+                  <li><a href="/logout">Logout</a></li>
+                <% end %>
               </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
