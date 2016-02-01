@@ -51,6 +51,15 @@ post '/volunteer_patient_page/?' do
   erb :volunteer_patient_page
 end
 
+put '/volunteer_patient_page/?' do
+  @volunteers = Volunteer.all
+  @patient = Patient.find params[:id]
+  @patient.update(request: params[:request])
+  erb :volunteer_patient_page
+end
+
+
+
 get '/enduser/?'  do
   session.clear
   @patients = Patient.all
