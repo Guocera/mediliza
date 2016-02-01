@@ -26,10 +26,10 @@
                   <li><a href="/">Home</a></li>
                   <li><a href="/volunteer_home_page">Volunteers</a></li>
                   <li><a href="/enduser">Nurses</a></li>
-                  <li><a href="/volunteer_patient_page/search/?">Family</a></li>
-                  <% if session %>
-                  <li><a href="/">Logout</a></li>
-                <% end %>
+                  <li><a href="/search/?">Family</a></li>
+                  <% if session[:vid] || session[:sid] %>
+                    <li><a href="/logout">Logout</a></li>
+                  <% end %>
                 </ul>
             </div><!-- navbar-collapse -->
         </div><!-- container-fluid -->
@@ -54,7 +54,7 @@
                 height: 150px;
                 width: 150px;"
               ><div class="container">
-              <div id="enter" style="padding-top: 0px" class="container-fluid row text-center service"><p><a href="/volunteer_home_page"> 
+              <div id="enter" style="padding-top: 0px" class="container-fluid row text-center service"><p><a href="/search"> 
                           <div type="submit" class="row-fluid service-icon text-center" >
                             <i class="fa fa-stethoscope fa-5x"></i>
                           </div>

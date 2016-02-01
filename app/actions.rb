@@ -65,7 +65,7 @@ get '/enduser2/:id' do
   erb :enduser2
 end
 
-get '/volunteer_patient_page/search/?' do
+get '/search/?' do
   erb :search
 end
 
