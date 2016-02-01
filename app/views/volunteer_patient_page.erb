@@ -152,19 +152,20 @@
       <% if session[:vid] %>
         <form action = " /volunteer_patient_page" method = "post" > 
           <h3> Observation and comments</h3>
-          <textarea type= "text" name = "observation" rows = "6" cols = "40" >  </textarea>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" name = "beverage" />
-                      Did Patient drink water during visit? 
-                    </label>
-                    </br>
-                  </div>
-                  <input type= "hidden" value=<%= @patient.id %> name = "id">
-                  <div>
-                     <!-- <a href="#" class="btn btn-primary">Save Comments</a> -->
-                     <input class="btn btn-primary" type= "submit" name= "submit" > 
-                  </div> 
+          <textarea type= "text" style="margin-bottom: 10px;" name = "observation" rows = "6" cols = "40" >  </textarea>
+          <h4> Approximate Walking Duration (min) </h4>
+          <input style="margin-bottom: 10px;" type= "text" name = "walking_duration" rows = "6" cols = "40" />
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name = "beverage" />
+              Did Patient drink water during visit? 
+            </label>
+            </br>
+          </div>
+          <input type= "hidden" value=<%= @patient.id %> name = "id">
+          <div>
+         <input class="btn btn-primary" type= "submit" name= "submit" > 
+          </div> 
         </form>  
         </br>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad;" style="padding-bottom: 30px;">

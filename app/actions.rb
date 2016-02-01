@@ -45,6 +45,7 @@ post '/volunteer_patient_page/?' do
     observation:   params[:observation],
     beverage:    beverage,
     volunteer: Volunteer.find(session[:vid]),
+    walking_duration: params[:walking_duration].to_i,
     time: Time.now
     )
    
