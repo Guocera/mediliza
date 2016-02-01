@@ -70,9 +70,9 @@
             <div class="text-center">
               <ul>
                 <% @staff.patients.each do |patient| %>
-                  <li class="cat-item cat-item-4">
-                    <a href="/enduser2/<%= patient.id %> " title="View all posts filed under Data"><%="#{patient.first_name} #{patient.last_name}   (#{patient.todays_walking_time} min)"%></a> 
-                  </li>
+                  <a href="/enduser2/<%= patient.id %> " title="View all posts filed under Data"><li class="cat-item cat-item-4">
+                    <%="#{patient.first_name} #{patient.last_name}   (#{patient.todays_walking_time} min)"%>
+                  </li></a> 
                 <% end %>
               </ul>
             </div>
