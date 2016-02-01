@@ -9,4 +9,13 @@ class Volunteer < ActiveRecord::Base
   #
   # @return [Array] lists all the interactions sorted by most recent
   has_many :interactions
+
+  # Lists the most recent interactions with the patient
+  #
+  # @param [FixNum] number of recent interactions (default: 3)
+  # @return [Array] list of recent interaction
+  def last_interactions(num = 3)
+    interactions.order(time: :desc).limit(num)
+  end
+
 end

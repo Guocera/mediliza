@@ -374,7 +374,7 @@ patient.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#last_interaction-instance_method" title="#last_interaction (instance method)">- (Array) <strong>last_interaction</strong>(num = 3) </a>
+      <a href="#last_interactions-instance_method" title="#last_interactions (instance method)">- (Array) <strong>last_interactions</strong>(num = 3) </a>
     
 
     
@@ -564,7 +564,7 @@ patient.</p>
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @param [FixNum] number of recent interactions (default: 3)
 </span>  <span class='comment'># @return [Array] list of recent interaction
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interaction'>last_interaction</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interactions'>last_interactions</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
@@ -701,7 +701,7 @@ patient.</p>
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @param [FixNum] number of recent interactions (default: 3)
 </span>  <span class='comment'># @return [Array] list of recent interaction
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interaction'>last_interaction</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interactions'>last_interactions</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
@@ -838,7 +838,7 @@ patient.</p>
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @param [FixNum] number of recent interactions (default: 3)
 </span>  <span class='comment'># @return [Array] list of recent interaction
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interaction'>last_interaction</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interactions'>last_interactions</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
@@ -975,7 +975,7 @@ patient.</p>
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @param [FixNum] number of recent interactions (default: 3)
 </span>  <span class='comment'># @return [Array] list of recent interaction
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interaction'>last_interaction</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interactions'>last_interactions</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
@@ -1112,7 +1112,7 @@ patient.</p>
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @param [FixNum] number of recent interactions (default: 3)
 </span>  <span class='comment'># @return [Array] list of recent interaction
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interaction'>last_interaction</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interactions'>last_interactions</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
@@ -1249,7 +1249,7 @@ patient.</p>
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @param [FixNum] number of recent interactions (default: 3)
 </span>  <span class='comment'># @return [Array] list of recent interaction
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interaction'>last_interaction</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interactions'>last_interactions</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
@@ -1386,7 +1386,7 @@ patient.</p>
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @param [FixNum] number of recent interactions (default: 3)
 </span>  <span class='comment'># @return [Array] list of recent interaction
-</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interaction'>last_interaction</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interactions'>last_interactions</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
@@ -1547,9 +1547,9 @@ patient</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="last_interaction-instance_method">
+  <h3 class="signature " id="last_interactions-instance_method">
   
-    - (<tt>Array</tt>) <strong>last_interaction</strong>(num = 3) 
+    - (<tt>Array</tt>) <strong>last_interactions</strong>(num = 3) 
   
 
   
@@ -1617,7 +1617,7 @@ patient</p>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 39</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_last_interaction'>last_interaction</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_last_interactions'>last_interactions</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1740,7 +1740,7 @@ patient</p>
 </div>
 
     <div id="footer">
-  Generated on Sun Jan 31 15:50:24 2016 by
+  Generated on Sun Jan 31 20:31:02 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.3).
 </div>

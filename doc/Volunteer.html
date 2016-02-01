@@ -210,6 +210,30 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#last_interactions-instance_method" title="#last_interactions (instance method)">- (Array) <strong>last_interactions</strong>(num = 3) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Lists the most recent interactions with the patient.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -269,7 +293,16 @@
 9
 10
 11
-12</pre>
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/volunteer.rb', line 7</span>
@@ -279,6 +312,15 @@
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Array] lists all the interactions sorted by most recent
 </span>  <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:interactions</span>
+
+  <span class='comment'># Lists the most recent interactions with the patient
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @param [FixNum] number of recent interactions (default: 3)
+</span>  <span class='comment'># @return [Array] list of recent interaction
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interactions'>last_interactions</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -336,7 +378,16 @@
 9
 10
 11
-12</pre>
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/volunteer.rb', line 7</span>
@@ -346,6 +397,15 @@
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Array] lists all the interactions sorted by most recent
 </span>  <span class='id identifier rubyid_has_many'>has_many</span> <span class='symbol'>:interactions</span>
+
+  <span class='comment'># Lists the most recent interactions with the patient
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @param [FixNum] number of recent interactions (default: 3)
+</span>  <span class='comment'># @return [Array] list of recent interaction
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_last_interactions'>last_interactions</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -414,12 +474,91 @@
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="last_interactions-instance_method">
+  
+    - (<tt>Array</tt>) <strong>last_interactions</strong>(num = 3) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Lists the most recent interactions with the patient</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>number</span>
+      
+      
+        <span class='type'>(<tt>FixNum</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>of recent interactions (default: 3)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>list of recent interaction</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/volunteer.rb', line 17</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_last_interactions'>last_interactions</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span> <span class='op'>=</span> <span class='int'>3</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_interactions'>interactions</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='label'>time:</span> <span class='symbol'>:desc</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_limit'>limit</span><span class='lparen'>(</span><span class='id identifier rubyid_num'>num</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
     <div id="footer">
-  Generated on Sun Jan 31 15:50:24 2016 by
+  Generated on Sun Jan 31 20:31:02 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.3).
 </div>

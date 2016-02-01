@@ -96,11 +96,11 @@
                 </br>
               <h4><span>Most recently visited patients: </span></h4>
               <ul style =  "width: 400px;">
-                <li class="cat-item cat-item-4">
-                  <% @patient = @patients.first %> 
-                  <a href="/volunteer_patient_page/<%= @patient.id %> " title="View all posts filed under Data"><%="#{@patient.first_name} #{@patient.last_name} "%></a> 
-                  
-                </li>
+                <% @volunteer.last_interactions.each do |interaction| %>
+                  <li class="cat-item cat-item-4">
+                    <a href="/volunteer_patient_page/<%= interaction.patient.id %> " title="View all posts filed under Data"><%="#{interaction.patient.first_name} #{interaction.patient.last_name} "%></a> 
+                  </li>
+                <% end %>
               </ul>
             </div>
 

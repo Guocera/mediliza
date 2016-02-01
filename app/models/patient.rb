@@ -36,7 +36,7 @@ class Patient < ActiveRecord::Base
   #
   # @param [FixNum] number of recent interactions (default: 3)
   # @return [Array] list of recent interaction
-  def last_interaction(num = 3)
+  def last_interactions(num = 3)
     interactions.order(time: :desc).limit(num)
   end
 
