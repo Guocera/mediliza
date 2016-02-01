@@ -101,7 +101,7 @@ get '/search/results' do
   else
     @patient = Patient.new(family_code: params[:family_code], last_name: params[:last_name])
     @patient.errors.add(:family_code, 'or last name was incorrect.')
-    erb :search
+    redirect '/search'
   end 
 end
 
