@@ -86,7 +86,24 @@
             </div>
             <div class="widget widget_categories" id="categories-3" style="position: center">
       <form action = " /volunteer_patient_page" method = "post" > 
-        <h3> Observation and comments after patient visit </h3>
+      <section class="faq-content">
+        <div class="container">
+          <div class="row">
+            <main class="col-md-9">
+              <div class="faq-header">Things you need to know...</div>
+
+                <div class="faq-c">
+                  <div class="faq-q"><span class="faq-t">+</span>Could my cell phone kill me?</div>
+                  <div class="faq-a">
+                    <p>It seems unlikely. But if you use your mobile phone a lot, consider getting an earpiece or putting your caller on speaker so you can hold the phone away from your head. The biggest study yet, in which Danish researchers tracked 420,000 cell phone users for up to 21 years, found no cancer risk, but much of the data was collected when cell phones were more of a novelty than a primary form of communication. In a smaller recent Israeli study of 1,726 people, heavy cell phone use raised the risk for salivary gland tumors 50 percent on the side on which the subjects usually held the phone (though the risk overall is still vanishingly small). The biggest threat, however, has nothing to do with cancer: Driving while talking on a cell phone puts you in the same league as a drunk driver. You're four to five times more likely to have an accident. </p>
+                  </div>
+                </div>
+              </main>
+            </div>
+          </div>
+        </section>
+
+        <h3> Observation and comments</h3>
         <textarea type= "text" name = "observation" rows = "6" cols = "40" >  </textarea>
                 <div class="checkbox">
                   <label>
@@ -125,5 +142,22 @@
     <script>
           new WOW().init();
     </script>
+
+    <script type="text/javascript">
+      $(".faq-q").click( function () {
+        var container = $(this).parents(".faq-c");
+        var answer = container.find(".faq-a");
+        var trigger = container.find(".faq-t");
+        
+        answer.slideToggle(200);
+        
+        if (trigger.hasClass("faq-o")) {
+          trigger.removeClass("faq-o");
+        }
+        else {
+          trigger.addClass("faq-o");
+        }
+      });
+    </script> 
 
   </body>
