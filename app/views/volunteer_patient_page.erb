@@ -85,22 +85,31 @@
                   </table>
             </div>
             <div class="widget widget_categories" id="categories-3" style="position: center">
-      <form action = " /volunteer_patient_page" method = "post" > 
       <section class="faq-content">
         <div class="container">
           <div class="row">
             <main class="col-md-9">
-                <div class="faq-c">
-                  <div class="faq-q"><span class="faq-t">+</span>Previous interactions...</div>
+                <div class="faq-c" style="border: none;">
+                  <div class="faq-q" style="align: center;"><span class="faq-t">+</span>Previous interactions...</div>
                   <div class="faq-a">
-                    
+                    <main class="blog1col col-md-9">    
+                      <div class="col-md-8 col-md-8">                    
+                        <% @patient.last_interactions.each do |interaction| %>
+                          <ul class="list-inline info">
+                           <li><%="Volunteer: #{interaction.volunteer.first_name} #{interaction.volunteer.last_name}"%></li>
+                          <li><i class="fa fa-calendar"></i> <%="Date: #{interaction.time.strftime('%x')}"%></li>
+                          <li><i class="fa fa-comment"></i><%="#{interaction.observation}"%></li>
+                          </ul>
+                      <% end %>
+                      </div>
+                    </main>
                   </div>
                 </div>
               </main>
             </div>
           </div>
         </section>
-
+      <form action = " /volunteer_patient_page" method = "post" > 
         <h3> Observation and comments</h3>
         <textarea type= "text" name = "observation" rows = "6" cols = "40" >  </textarea>
                 <div class="checkbox">
@@ -117,7 +126,7 @@
                 </div> 
       </form>  
       </br>
-       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" style="align: center; padding-bottom: 30px;">
+       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad"; padding-bottom: 30px;">
             <a href="/volunteer_home_page" class="btn btn-primary">Back to list of patients</a>
           </div>  
           </div>
