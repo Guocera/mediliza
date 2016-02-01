@@ -1,26 +1,9 @@
- <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="img/season-change.jpg" type="image/x-icon">
-  <title>Mediliza Homepage</title>
-
-    <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-    <!-- <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:300,400,500,700' rel='stylesheet' type='text/css'> -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600' rel='stylesheet' type='text/css'>
-    
-
-  <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/main.css">
-</head>
+  <head>
+  </head>
 
   <body>
     <section class= "navs">
-      <nav class="navbar navbar-default" role="navigation">
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -35,32 +18,34 @@
                   Mediliza
                 </a>
             </div>
-    
-            <!-- Collect the nav links, forms, and other content for toggling -->
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav navbar-right">
-                  <li><a href="/">Home</a></li>
-                  <li><a href="/volunteer_home_page">Volunteers</a></li>
-                  <li><a href="/enduser">Nurses</a></li>
-                  <li><a href="/search/?">Family</a></li>
-                  <% if session[:vid] || session[:sid] %>
-                    <li><a href="/logout">Logout</a></li>
-                  <% end %>
-                </ul>
-            </div><!-- navbar-collapse -->
-        </div><!-- container-fluid -->
+               <ul class="nav navbar-nav navbar-right">
+                <li><a href="/">Home</a></li>
+                <li><a href="/volunteer_home_page">Volunteers</a></li>
+                <li><a href="/enduser">Nurses</a></li>
+                <li><a href="/search/?">Family</a></li>
+                <li><a href="/team">Team</a></li>
+                <% if session[:vid] || session[:sid] %>
+                  <li><a href="/logout">Logout</a></li>
+                <% end %>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
       </nav>
     </section>
 
-    <section class= "blog-title text-center">
-      <div class="container">
-        <div class="row">
-          <div style="padding-bottom: 0px;" class="welcome">
-            <h1 class="welcome-title">Meet Our Team</h1>
+    <section class="blog-title text-center">
+      <div class="blog-wrapper" style="height: 220px;">
+        <div class="container">
+          <div class= "row">  
+            <h2 class="headline" style="padding-top: 100px;">Meet Our Team</h2>
           </div>
         </div>
       </div>
     </section>
+
 
               
     <section class= "doctor-list">
