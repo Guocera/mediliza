@@ -51,34 +51,34 @@
           <main class="text-center">
             <div class="panel panel-info" style="border: none;">
               <div class="panel-heading">
-                <h3 class="panel-title"><%= "#{@patients.first_name} #{@patients.last_name} "%></h3>
+                <h3 class="panel-title"><%= "#{@patient.first_name} #{@patient.last_name} "%></h3>
               </div>
               <div class="panel-body">
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
                         <td>Patient ID:</td>
-                        <td><%= "#{@patients.id}"%></td>
+                        <td><%= "#{@patient.id}"%></td>
                       </tr>
                       <tr>
                         <td>Likes to be Known as:</td>
-                        <td> <%= "#{@patients.nick_name}"%></td>
+                        <td> <%= "#{@patient.nick_name}"%></td>
                       </tr>
                       <tr>
                         <td>Language Requirements:</td>
-                        <td><%="#{@patients.language}" %></td>
+                        <td><%="#{@patient.language}" %></td>
                       </tr>
                       <tr>
                         <td>Mobility:</td>
-                        <td><%="#{@patients.mobility_type}" %></td>
+                        <td><%="#{@patient.mobility_type}" %></td>
                       </tr>
                       <tr>
                         <td>Beverage Type:</td>
-                        <td> <%="#{@patients.beverage_type}" %></td>
+                        <td> <%="#{@patient.beverage_type}" %></td>
                       </tr>
                       <tr>
                         <td>Emergency Contact:</td>
-                        <td><%="#{@patients.staff.first_name} #{@patients.staff.last_name}" %>
+                        <td><%="#{@patient.staff.first_name} #{@patient.staff.last_name}" %>
                         </td>   
                       </tr>                   
                     </tbody>
@@ -90,12 +90,10 @@
         <div class="container">
           <div class="row">
             <main class="col-md-9">
-              <div class="faq-header">Things you need to know...</div>
-
                 <div class="faq-c">
-                  <div class="faq-q"><span class="faq-t">+</span>Could my cell phone kill me?</div>
+                  <div class="faq-q"><span class="faq-t">+</span>Previous interactions...</div>
                   <div class="faq-a">
-                    <p>It seems unlikely. But if you use your mobile phone a lot, consider getting an earpiece or putting your caller on speaker so you can hold the phone away from your head. The biggest study yet, in which Danish researchers tracked 420,000 cell phone users for up to 21 years, found no cancer risk, but much of the data was collected when cell phones were more of a novelty than a primary form of communication. In a smaller recent Israeli study of 1,726 people, heavy cell phone use raised the risk for salivary gland tumors 50 percent on the side on which the subjects usually held the phone (though the risk overall is still vanishingly small). The biggest threat, however, has nothing to do with cancer: Driving while talking on a cell phone puts you in the same league as a drunk driver. You're four to five times more likely to have an accident. </p>
+                    
                   </div>
                 </div>
               </main>
@@ -112,7 +110,7 @@
                   </label>
                   </br>
                 </div>
-                <input type= "hidden" value=<%= @patients.id %> name = "id">
+                <input type= "hidden" value=<%= @patient.id %> name = "id">
                 <div>
                    <!-- <a href="#" class="btn btn-primary">Save Comments</a> -->
                    <input class="btn btn-primary" type= "submit" name= "submit" > 

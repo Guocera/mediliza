@@ -6,11 +6,11 @@ helpers do
 end
 
 # Homepage (Root path)
-get '/' do
+get '/?' do
   erb :index
 end
 
-get '/volunteer_home_page' do
+get '/volunteer_home_page/?' do
   @patients =  Patient.all
   @volunteer =  Volunteer.first
   erb :volunteer_home_page
@@ -22,9 +22,9 @@ get '/volunteer_patient_page/:id' do
   erb :volunteer_patient_page
 end
 
-post '/volunteer_patient_page' do
+post '/volunteer_patient_page/?' do
    @volunteers =  Volunteer.all
-   @patients = Patient.find params[:id]
+   @patient = Patient.find params[:id]
    if params[:beverage]
      beverage = true
    else
@@ -38,7 +38,7 @@ post '/volunteer_patient_page' do
   erb :volunteer_patient_page
 end
 
-get '/enduser'  do
+get '/enduser/?'  do
   @patients = Patient.all
   erb :enduser1
 end
@@ -53,14 +53,13 @@ get '/volunteer_patient_page/search/?' do
 end
 
 get '/volunteer_patient_page/search/result' do
-  @patients = Patient.find_by(family_code: params[:family_code])
-  pp @patients
-  if @patients
+  @patient = Patient.find_by(family_code: params[:family_code])
+  if @patient
     @volunteers = Volunteer.all
     erb :volunteer_patient_page
   else
-    @patients = Patient.new(family_code: params[:family_code])
-    @patients.errors.add(:family_code, 'was incorrect.')
+    @patient = Patient.new(family_code: params[:family_code])
+    @patient.errors.add(:family_code, 'was incorrect.')
     erb :search
   end 
 end
