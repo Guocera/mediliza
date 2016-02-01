@@ -39,7 +39,6 @@ post '/volunteer_patient_page' do
   erb :volunteer_patient_page
 end
 
-
 get '/enduser'  do
   @patients = Patient.all
   erb :enduser1
