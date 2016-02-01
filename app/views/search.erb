@@ -42,18 +42,18 @@
                 <div class="row text-center">
                   <div style="padding-bottom: 100px;" class="about-service text-center">
                     <h3>
-                      <% if @patients && @patients.errors.any? %>
+                      <% if @patient && @patient.errors.any? %>
                         <div>
                           <ul>
-                            <% @patients.errors.full_messages.each do |message| %>
+                            <% @patient.errors.full_messages.each do |message| %>
                               <li><%= message %></li>
                             <% end %>
                           </ul>
                         </div>
                       <% end %>
                     </h3>
-                      <form action="/volunteer_patient_page/search/result" method="get">
-                        <h3><input type=text name="family_code" placeholder="10-Digit Code" value="<%= @patients && @patients.family_code %>" /></h3>
+                      <form action="/search/results" method="get">
+                        <h3><input type=text name="family_code" placeholder="10-Digit Code" value="<%= @patient && @patient.family_code %>" /></h3>
                         <p><button style="
                                             background-color: #67B2C1; 
                                             border: none;border: none;

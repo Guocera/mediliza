@@ -69,7 +69,7 @@ get '/search/?' do
   erb :search
 end
 
-get '/volunteer_patient_page/search/result' do
+get '/search/results' do
   @patient = Patient.find_by(family_code: params[:family_code])
   if @patient
     @volunteers = Volunteer.all
