@@ -63,7 +63,7 @@
           </div>
           <div class="row">
             <div class="sub-headline">
-              <p style = " text-align: left;">Hi Volunteer, First_name, last_name </p>
+              <p style = " text-align: left;">Hi <%="#{@volunteers.first.first_name}, #{@volunteers.first.last_name} "%></p> 
             </div>
           </div>  
         </div>
@@ -77,30 +77,50 @@
              
           </main>
 
-
+          
           <!-- <aside class="col-md-3 "> -->
-            <div class="widget widget_categories" id="categories-3">
-              <h4><span>Patients availabe on your next visit</span></h4>
-              <h4><span>on Today.date</span></h4>
-              <ul>
+            <div class="widget widget_categories" id="categories-3">                
+                <div class="btn-group">
+                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Patient List <span class="caret"></span>
+                 </button>
+                 <ul class="dropdown-menu">
+                   <%@patients.each do |patient|%>
+                        <%link = patient.id %>
+                    <li><a href="/volunteer_patient_page/<%=link %>"><%="#{patient.first_name} #{patient.last_name}"%></a></li>
+                   <%end%>
+                   <li role="separator" class="divider"></li>
+                   <li><a href="#">Separated link</a></li>
+                 </ul>
+                </div>  
+                </br>
+              <h4><span>Nurse recommendation of patient to be visited </span></h4>
+              <h4><span> On <%= "#{Date.today}" %></span></h4>
+              <ul style =  "width: 400px;">
                 <li class="cat-item cat-item-4">
-                  <a href="#" title="View all posts filed under Data">Patient A</a>
+                  <% @patient = @patients.sample %> 
+                  <a href="/volunteer_patient_page/<%= @patient.id %> " title="View all posts filed under Data"><%="#{@patient.first_name} #{@patient.last_name} "%></a> 
+                  
                 </li>
 
                 <li class="cat-item cat-item-3">
-                  <a href="#" title="View all posts filed under Lesti">Patient B</a>
+                <% @patient = @patients.sample %> 
+                  <a href="/volunteer_patient_page/<%= @patient.id %> " title="View all posts filed under Lesti"><%="#{@patient.first_name} #{@patient.last_name} "%></a>
                 </li>
 
                 <li class="cat-item cat-item-5">
-                  <a href="#" title="View all posts filed under Nean condimentum">Patient C</a>
+                <% @patient = @patients.sample %> 
+                  <a href="/volunteer_patient_page/<%= @patient.id %> " title="View all posts filed under Nean condimentum"><%="#{@patient.first_name} #{@patient.last_name} "%></a>
                 </li>
 
                 <li class="cat-item cat-item-1">
-                  <a href="#" title="View all posts filed under News">Patient D</a>
+                <% @patient = @patients.sample %> 
+                  <a href="/volunteer_patient_page/<%= @patient.id %> " title="View all posts filed under News"><%="#{@patient.first_name} #{@patient.last_name} "%></a>
                 </li>
 
                 <li class="cat-item cat-item-21">
-                  <a href="#" title="View all posts filed under Slide">Patient E</a>
+                <% @patient = @patients.sample %> 
+                  <a href="/volunteer_patient_page/<%= @patient.id %> " title="View all posts filed under Slide"><%="#{@patient.first_name} #{@patient.last_name} "%></a>
                 </li>
               </ul>
             </div>

@@ -3,23 +3,9 @@
 <html>
 <h1><%= "#{@patients.first_name} #{@patients.last_name} (#{@patients.nick_name}), you are #{@patients.staff.first_name}'s patient. " %></h1>
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="img/season-change.jpg" type="image/x-icon">
+    
     <title>Mediliza Homepage</title>
 
-      <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-      <!-- <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
-      <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:300,400,500,700' rel='stylesheet' type='text/css'> -->
-      <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
-      <link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600' rel='stylesheet' type='text/css'>
-      
-
-    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
   </head>
 
   <body>
@@ -63,7 +49,7 @@
           </div>
           <div class="row">
             <div class="sub-headline">
-              <p style = " text-align: left;">Hi Volunteer, First_name, last_name </p>
+              <p style = " text-align: left;"> Hi <%="#{@volunteers.first.first_name}, #{@volunteers.first.last_name} "%></p> 
             </div>
           </div>  
         </div>
@@ -86,62 +72,53 @@
 
        <!--  <A href="edit.html" >Logout</A> -->
        <br>
-        <p class=" text-info">Next available visit time: 01,2016,03:00 pm </p>
+        <p class=" text-info">Next available visit time: <%="#{Date.today}" %> </p>
       </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
    
    
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title">IDD</h3>
+              <h3 class="panel-title"><%= "#{@patients.first_name} #{@patients.last_name} "%></h3>
             </div>
             <div class="panel-body">
               <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
+                <div class="col-md-3 col-lg-3 " align="center"> <!-- <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div> -->
                 
                 <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
-                  <dl>
-                    <dt>DEPARTMENT:</dt>
-                    <dd>Administrator</dd>
-                    <dt>HIRE DATE</dt>
-                    <dd>11/12/2013</dd>
-                    <dt>DATE OF BIRTH</dt>
-                       <dd>11/12/2013</dd>
-                    <dt>GENDER</dt>
-                    <dd>Male</dd>
-                  </dl>
+                  
                 </div>-->
                 <div class=" col-md-9 col-lg-9 "> 
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
-                        <td>Unit:</td>
-                        <td>Orthopedics</td>
+                        <td>Patient ID</td>
+                        <td><%= "#{@patients.id}"%></td>
                       </tr>
                       <tr>
                         <td>Likes to be Known as:</td>
-                        <td> Bruce Lee</td>
+                        <td> <%= "#{@patients.nick_name}"%></td>
                       </tr>
                       <tr>
                         <td>Language Requirements</td>
-                        <td>English</td>
+                        <td><%="#{@patients.language}" %></td>
                       </tr>
                    
                         <!--  <tr> -->
                              <tr>
                         <td>Special Needs</td>
-                        <td>Not to go outside</td>
+                        <td></td>
                       </tr>
                         <tr>
                         <td></td>
-                        <td>Needs to walk at least 20mins</td>
+                        <td><%="#{@patients.mobility_type}" %></td>
                       </tr>
                       <tr>
                         <td></td>
-                        <td> drink minimum of 1 glass of water</td>
+                        <td> <%="#{@patients.beverage_type}" %></td>
                       </tr>
                         <td>Emergency Contact</td>
-                        <td>Nurse Judy<br><br>555-4567-890(Landline)
+                        <td><%="#{@patients.staff.first_name} #{@patients.staff.last_name}" %>
                         </td>
                            
                       </tr>
@@ -149,7 +126,7 @@
                     </tbody>
                   </table>
                   
-                  <a href="#" class="btn btn-primary">Back to list of patients</a>
+                  <a href="/volunteer_home_page" class="btn btn-primary">Back to list of patients</a>
                  
                 </div>
               </div>
@@ -166,34 +143,32 @@
     </div>
 
             <div class="widget widget_categories" id="categories-3">
-            <h4><strong> Observation and comments after patient visit </strong></h4>
-                <textarea class="form-control" style = "border: solid blue; width: 500px; padding: 60px"></textarea> 
+            <form action = " /volunteer_patient_page" method = "post" > 
+              <h4><strong> Observation and comments after patient visit </strong></h4>
+                
+                  <textarea type= "text" name = "observation" rows = "6" cols = "50" >  </textarea>
 
-
-            </div>
+               </div>
 
                    <div class="checkbox">
                   <label>
-                    <input type="checkbox" value="">
+                    <input type="checkbox" checked = "checked" name = "beverage" />
                     Did Patient drink water during visit? 
                   </label>
                   </br>
                    <label>
-                    <input type="checkbox" value="">
-                    was patient able to talk during visit? 
-                  </label>
-                  </br>
-                   <label>
-                    <input type="checkbox" value="">
+                   <!--  <input type="checkbox" value= <"true ">
                     Was patient able to walk during visit? 
-                  </label>
+                  </label> -->
                 </div>
-                
+                <input type= "hidden" value=<%= @patients.id %> name = "id">
                 <div>
                   </br>
                   </br> 
-                   <a href="#" class="btn btn-primary">Save Comments</a>
-                </div>   
+                   <!-- <a href="#" class="btn btn-primary">Save Comments</a> -->
+                   <input type= "submit" name= "submit" > 
+                </div> 
+            </form>  
              
 <!-- 
 
