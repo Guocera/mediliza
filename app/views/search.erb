@@ -1,3 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/season-change.jpg" type="image/x-icon">
+    <title>Mediliza Homepage</title>
+
+      <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+      <!-- <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans:300,400,500,700' rel='stylesheet' type='text/css'> -->
+      <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600' rel='stylesheet' type='text/css'>
+      
+
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+  </head>
+
+
   <body>
     <section class= "navs">
       <nav class="navbar navbar-default" role="navigation">
@@ -19,14 +44,14 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="/">Home</a></li>
-                <li><a href="/volunteer_home_page">Volunteers</a></li>
-                <li><a href="/enduser">Nurses</a></li>
-                <li><a href="/search/?">Family</a></li>
-                <% if session[:vid] || session[:sid] %>
-                  <li><a href="/logout">Logout</a></li>
-                <% end %>
-              </ul>
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/volunteer_home_page">Volunteers</a></li>
+                  <li><a href="/enduser">Nurses</a></li>
+                  <li><a href="/search/?">Family</a></li>
+                  <% if session[:vid] || session[:sid] %>
+                    <li><a href="/logout">Logout</a></li>
+                  <% end %>
+                </ul>
             </div><!-- navbar-collapse -->
         </div><!-- container-fluid -->
       </nav>
@@ -73,4 +98,17 @@
             </div>
           </div>
       </section>
+
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="assets/js/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="assets/js/wow.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+
+    <script>
+          new WOW().init();
+    </script>
+
   </body>
+
+  </html>
