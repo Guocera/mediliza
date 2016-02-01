@@ -59,6 +59,19 @@
           <div class= "row">  
             <h2 class="headline text-center" style="padding-top: 100px;">Welcome <%="#{@volunteer.first_name}"%></h2>
           </div>
+          <div class="row">
+            <div class="btn-group">
+               <button type="button" class="btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Patient List <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu text-primary">
+                <%@patients.each do |item|%>
+                <%link=item.id%>
+                <li><a href="/enduser2/<%=link%>"><%="#{item.first_name} #{item.last_name}"%></a></li>
+                <%end%>
+              </ul>
+            </div>  
+          </div>
         </div>
       </div>
     </section>
@@ -73,19 +86,8 @@
           
           <!-- <aside class="col-md-3 "> -->
             <div class="widget widget_categories" id="categories-3">                
-                <div class="btn-group">
-                 <button type="button" class="btn btn-default dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   Patient List <span class="caret"></span>
-                 </button>
-                 <ul class="dropdown-menu">
-                   <%@patients.each do |patient|%>
-                        <%link = patient.id %>
-                    <li><a href="/volunteer_patient_page/<%=link %>"><%="#{patient.first_name} #{patient.last_name}"%></a></li>
-                   <%end%>
-                 </ul>
-                </div>  
-                </br>
-              <h4><div style="padding-top: 50px" class="text-center">Most recently visited patients: </div></h4>
+                
+r              <h4><div style="padding-top: 50px" class="text-center">Most recently visited patients: </div></h4>
               <div class="text-center">
                 <ul>
                   <% @volunteer.last_interactions.each do |interaction| %>
