@@ -64,10 +64,23 @@
                         <td> <%= "#{@patient.nick_name}"%></td>
                       </tr>
                         <tr>
-                          
                           <td>Likes:</td>
-                          <td> <%= "#{@patient.nick_name}"%></td>
+                          <% if @patient.likes.first %>
+                            <td> <%= "#{@patient.likes.first.description}"%></td>
+                          <% else %>
+                            <td>None</td>
+                          <% end %>
+
                         </tr>
+                        <% @patient.likes.each_with_index do |likes, i| %>
+                            <% unless i == 0 %>
+                              <tr>
+                                <td></td>
+                                <td> <%= "#{likes.description}"%></td>
+                              </tr>
+
+                            <% end %>
+                        <% end %>
                       <tr>
                         <td>Language Requirements:</td>
                         <td><%="#{@patient.language}" %></td>
