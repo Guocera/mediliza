@@ -61,8 +61,9 @@ get '/enduser/?'  do
 end
 
 get '/enduser2/:id' do 
-  @chosen = Patient.find_by(id: params[:id])
-  erb :enduser2
+  @patient = Patient.find params[:id]
+  @volunteers =  Volunteer.all
+  erb :volunteer_patient_page
 end
 
 get '/search/?' do
