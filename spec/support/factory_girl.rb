@@ -18,6 +18,7 @@ FactoryGirl.define do
     beverage_type  { ["Water", "Water", "Water", "Water", "Water", "Thickened Water"].sample }
     mobility_type  { ["Walk", "Walk", "Walk", "walk", "Wheelchair"].sample }
     language       { ["English", "English", "English", "English", "French", "Arabic"].sample }
+    request        { Faker::Lorem.sentence }
   end
 
   factory :volunteer do

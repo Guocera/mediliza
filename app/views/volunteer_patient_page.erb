@@ -112,12 +112,17 @@
                         <td>Emergency Contact:</td>
                         <td><%="#{@patient.staff.first_name} #{@patient.staff.last_name}" %>
                         </td>   
-                      </tr>               
+                      </tr>   
+                      <tr>
+                        <td>Recent family request:</td>
+                        <td><%="#{@patient.request}" %>
+                        </td>   
+                      </tr>            
                     </tbody>
                   </table>
             </div>
 
-      <section class="faq-content">
+      <section class="faq-content" style="margin-top: 0px">
         <div class="container">
           <div class="row">
             <main class="col-md-9">

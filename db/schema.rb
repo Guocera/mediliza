@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20160128162400) do
     t.string   "mobility_type"
     t.integer  "family_code",   limit: 8
     t.string   "language"
+    t.string   "request"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end

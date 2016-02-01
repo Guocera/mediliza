@@ -9,6 +9,7 @@ class CreatePatients < ActiveRecord::Migration
       t.string :mobility_type
       t.integer :family_code, limit: 8
       t.string :language
+      t.string :request
       t.timestamps null: false
     end
   end

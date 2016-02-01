@@ -14,6 +14,8 @@
 #   @return [String] describes the mobility level
 # @attribute language
 #   @return [String] lists language spoken
+# @attribute request
+#   @return [String] newest request from family member
 class Patient < ActiveRecord::Base
   default_scope { order(first_name: :asc, last_name: :asc) }
   after_create :assign_family_code
