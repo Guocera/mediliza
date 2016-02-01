@@ -1,3 +1,5 @@
+enable :sessions
+
 helpers do
   def markdown(text)
     return "" unless text
@@ -7,12 +9,14 @@ end
 
 # Homepage (Root path)
 get '/?' do
+  session[:vid] ||= nil
   erb :index
 end
 
 get '/volunteer_home_page/?' do
   @patients =  Patient.all
   @volunteer =  Volunteer.first
+  session[:vid] = @volunteer.id
   erb :volunteer_home_page
 end
 
@@ -30,9 +34,10 @@ post '/volunteer_patient_page/?' do
    else
     beverage = false 
    end
-   @interaction = Interaction.create(
+   @interaction = @patient.interactions.create(
     observation:   params[:observation],
-    beverage:    beverage
+    beverage:    beverage,
+    volunteer: Volunteer.find(session[:vid])
     )
    
   erb :volunteer_patient_page
