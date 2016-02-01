@@ -156,7 +156,6 @@
                     </br>
                   </div>
                   <input type= "hidden" value=<%= @patient.id %> name = "id">
-                  <input type= "hidden" value=<%= @patient.id %> name = "id">
                   <div>
                      <!-- <a href="#" class="btn btn-primary">Save Comments</a> -->
                      <input class="btn btn-primary" type= "submit" name= "submit" > 
@@ -166,8 +165,16 @@
          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad;" style="padding-bottom: 30px;">
               <a href="/volunteer_home_page" class="btn btn-primary">Back to list of patients</a>
           </div>  
-      <% else %>
-        
+      <% elsif session[:fid] %>
+        <form action = " /volunteer_patient_page" method = "post" > 
+          <h3>Request:</h3>
+          <textarea type= "text" name = "observation" rows = "6" cols = "40" >  </textarea>
+          <input type= "hidden" value=<%= @patient.id %> name = "id">
+          <div>
+             <!-- <a href="#" class="btn btn-primary">Save Comments</a> -->
+             <input class="btn btn-primary" type= "submit" name= "submit" > 
+          </div> 
+        </form> 
       <% end %>
         
   </div>
