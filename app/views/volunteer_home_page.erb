@@ -79,7 +79,21 @@
 
           
           <!-- <aside class="col-md-3 "> -->
-            <div class="widget widget_categories" id="categories-3">
+            <div class="widget widget_categories" id="categories-3">                
+                <div class="btn-group">
+                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Patient List <span class="caret"></span>
+                 </button>
+                 <ul class="dropdown-menu">
+                   <%@patients.each do |patient|%>
+                        <%link = patient.id %>
+                    <li><a href="/volunteer_patient_page/<%=link %>"><%="#{patient.first_name} #{patient.last_name}"%></a></li>
+                   <%end%>
+                   <li role="separator" class="divider"></li>
+                   <li><a href="#">Separated link</a></li>
+                 </ul>
+                </div>  
+                </br>
               <h4><span>Nurse recommendation of patient to be visited </span></h4>
               <h4><span> On <%= "#{Date.today}" %></span></h4>
               <ul style =  "width: 400px;">

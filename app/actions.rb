@@ -23,6 +23,23 @@ get '/volunteer_patient_page/:id' do
   erb :volunteer_patient_page
 end
 
+post '/volunteer_patient_page' do
+   @volunteers =  Volunteer.all
+   @patients = Patient.find params[:id]
+   if params[:beverage]
+     beverage = true
+   else
+    beverage = false 
+   end
+   @interaction = Interaction.create(
+    observation:   params[:observation],
+    beverage:    beverage
+    )
+   
+      
+  erb :volunteer_patient_page
+end
+
 
 get '/enduser'  do
   @patients = Patient.all
