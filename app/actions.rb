@@ -19,6 +19,7 @@ get '/logout' do
 end
 
 get '/volunteer_home_page/?' do
+  session.clear
   @patients =  Patient.all
   @volunteer =  Volunteer.first
   session[:vid] = @volunteer.id
@@ -51,6 +52,7 @@ post '/volunteer_patient_page/?' do
 end
 
 get '/enduser/?'  do
+  session.clear
   @patients = Patient.all
   erb :enduser1
 end
