@@ -12,7 +12,7 @@ end
 
 get '/volunteer_home_page' do
   @patients =  Patient.all
-  @volunteers =  Volunteer.all
+  @volunteer =  Volunteer.first
   erb :volunteer_home_page
 end
 
@@ -35,7 +35,6 @@ post '/volunteer_patient_page' do
     beverage:    beverage
     )
    
-      
   erb :volunteer_patient_page
 end
 
