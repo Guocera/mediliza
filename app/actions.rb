@@ -41,15 +41,21 @@ post '/volunteer_patient_page/?' do
    else
     beverage = false 
    end
-   @interaction = @patient.interactions.create(
+   @interaction = @patient.interactions.new(
     observation:   params[:observation],
     beverage:    beverage,
     volunteer: Volunteer.find(session[:vid]),
-    walking_duration: params[:walking_duration].to_i,
+    walking_duration: params[:walking_duration],
     time: Time.now
     )
-   
-  erb :volunteer_patient_page
+  walking_duration = params[:walking_duration]
+  if walking_duration.match(/^[0-9]*$/) != nil
+    @interaction.save
+    erb :volunteer_patient_page
+  else
+    @interaction.errors.add(:walking_duration, "must be an integer.")
+    erb :volunteer_patient_page
+  end
 end
 
 put '/volunteer_patient_page/?' do

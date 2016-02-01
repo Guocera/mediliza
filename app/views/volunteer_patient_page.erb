@@ -50,6 +50,19 @@
 
     <section class= "blog-content">
       <div class= "container">
+        <div class="row">
+          <h3>
+            <% if @interaction && @interaction.errors.any? %>
+              <div>
+                <ul>
+                  <% @interaction.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+          </h3>
+        </div>
         <div class= "row">
           <main class="text-center">
             <div class="panel panel-info" style="border: none;">
