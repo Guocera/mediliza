@@ -51,6 +51,7 @@ post '/volunteer_patient_page/?' do
   walking_duration = params[:walking_duration]
   if walking_duration.match(/^[0-9]*$/) != nil
     @interaction.save
+    @interacted = true
     erb :volunteer_patient_page
   else
     @interaction.errors.add(:walking_duration, "must be an integer.")
@@ -62,6 +63,7 @@ put '/volunteer_patient_page/?' do
   @volunteers = Volunteer.all
   @patient = Patient.find params[:id]
   @patient.update(request: params[:request])
+  @update = true
   erb :volunteer_patient_page
 end
 
