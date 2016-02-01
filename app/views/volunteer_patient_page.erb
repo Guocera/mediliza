@@ -63,24 +63,39 @@
                         <td>Likes to be Known as:</td>
                         <td> <%= "#{@patient.nick_name}"%></td>
                       </tr>
-                        <tr>
-                          <td>Likes:</td>
-                          <% if @patient.likes.first %>
-                            <td> <%= "#{@patient.likes.first.description}"%></td>
-                          <% else %>
-                            <td>None</td>
-                          <% end %>
-
-                        </tr>
-                        <% @patient.likes.each_with_index do |likes, i| %>
-                            <% unless i == 0 %>
-                              <tr>
-                                <td></td>
-                                <td> <%= "#{likes.description}"%></td>
-                              </tr>
-
-                            <% end %>
+                      <tr>
+                        <td>Likes:</td>
+                        <% if @patient.likes.first %>
+                          <td> <%= "#{@patient.likes.first.description}"%></td>
+                        <% else %>
+                          <td>None</td>
                         <% end %>
+
+                      </tr>
+                      <% @patient.likes.each_with_index do |like, i| %>
+                          <% unless i == 0 %>
+                            <tr>
+                              <td></td>
+                              <td> <%= "#{like.description}"%></td>
+                            </tr>
+                          <% end %>
+                      <% end %>
+                      <tr>
+                        <td>Dislikes:</td>
+                        <% if @patient.dislikes.first %>
+                          <td> <%= "#{@patient.dislikes.first.description}"%></td>
+                        <% else %>
+                          <td>None</td>
+                        <% end %>
+                      </tr>
+                      <% @patient.dislikes.each_with_index do |dislike, i| %>
+                          <% unless i == 0 %>
+                            <tr>
+                              <td></td>
+                              <td> <%= "#{dislike.description}"%></td>
+                            </tr>
+                          <% end %>
+                      <% end %>
                       <tr>
                         <td>Language Requirements:</td>
                         <td><%="#{@patient.language}" %></td>
