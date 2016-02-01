@@ -37,7 +37,8 @@ post '/volunteer_patient_page/?' do
    @interaction = @patient.interactions.create(
     observation:   params[:observation],
     beverage:    beverage,
-    volunteer: Volunteer.find(session[:vid])
+    volunteer: Volunteer.find(session[:vid]),
+    time: Time.now
     )
    
   erb :volunteer_patient_page
