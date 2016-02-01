@@ -54,4 +54,18 @@ class Patient < ActiveRecord::Base
     end
   end
 
+  # Gives back a list of all patient's likes
+  #
+  # @return [Array] list of all patient's likes
+  def likes
+    preferences.where(likes: true)
+  end
+
+  # Gives back a list of all patient's dislikes
+  #
+  # @return [Array] list of all patient's dislikes
+  def dislikes
+    preferences.where(likes: false)
+  end
+
 end

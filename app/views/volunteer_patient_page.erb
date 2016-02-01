@@ -60,13 +60,14 @@
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
-                        <td>Patient ID:</td>
-                        <td><%= "#{@patient.id}"%></td>
-                      </tr>
-                      <tr>
                         <td>Likes to be Known as:</td>
                         <td> <%= "#{@patient.nick_name}"%></td>
                       </tr>
+                        <tr>
+                          
+                          <td>Likes:</td>
+                          <td> <%= "#{@patient.nick_name}"%></td>
+                        </tr>
                       <tr>
                         <td>Language Requirements:</td>
                         <td><%="#{@patient.language}" %></td>
@@ -83,7 +84,7 @@
                         <td>Emergency Contact:</td>
                         <td><%="#{@patient.staff.first_name} #{@patient.staff.last_name}" %>
                         </td>   
-                      </tr>                   
+                      </tr>               
                     </tbody>
                   </table>
             </div>

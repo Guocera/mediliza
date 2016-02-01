@@ -350,6 +350,30 @@ patient.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#dislikes-instance_method" title="#dislikes (instance method)">- (Array) <strong>dislikes</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Gives back a list of all patient&#39;s dislikes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#interactions-instance_method" title="#interactions (instance method)">- (Array) <strong>interactions</strong> </a>
     
 
@@ -390,6 +414,30 @@ patient.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>Lists the most recent interactions with the patient.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#likes-instance_method" title="#likes (instance method)">- (Array) <strong>likes</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Gives back a list of all patient&#39;s likes.</p>
 </div></span>
   
 </li>
@@ -537,7 +585,21 @@ patient.</p>
 54
 55
 56
-57</pre>
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 17</span>
@@ -580,6 +642,20 @@ patient.</p>
         <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Gives back a list of all patient&#39;s likes
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] list of all patient&#39;s likes
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_likes'>likes</span>
+    <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Gives back a list of all patient&#39;s dislikes
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] list of all patient&#39;s dislikes
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_dislikes'>dislikes</span>
+    <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
 <span class='kw'>end</span></pre>
@@ -674,7 +750,21 @@ patient.</p>
 54
 55
 56
-57</pre>
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 17</span>
@@ -717,6 +807,20 @@ patient.</p>
         <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Gives back a list of all patient&#39;s likes
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] list of all patient&#39;s likes
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_likes'>likes</span>
+    <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Gives back a list of all patient&#39;s dislikes
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] list of all patient&#39;s dislikes
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_dislikes'>dislikes</span>
+    <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
 <span class='kw'>end</span></pre>
@@ -811,7 +915,21 @@ patient.</p>
 54
 55
 56
-57</pre>
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 17</span>
@@ -854,6 +972,20 @@ patient.</p>
         <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Gives back a list of all patient&#39;s likes
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] list of all patient&#39;s likes
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_likes'>likes</span>
+    <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Gives back a list of all patient&#39;s dislikes
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] list of all patient&#39;s dislikes
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_dislikes'>dislikes</span>
+    <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
 <span class='kw'>end</span></pre>
@@ -948,7 +1080,21 @@ patient.</p>
 54
 55
 56
-57</pre>
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 17</span>
@@ -991,6 +1137,20 @@ patient.</p>
         <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Gives back a list of all patient&#39;s likes
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] list of all patient&#39;s likes
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_likes'>likes</span>
+    <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Gives back a list of all patient&#39;s dislikes
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] list of all patient&#39;s dislikes
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_dislikes'>dislikes</span>
+    <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
 <span class='kw'>end</span></pre>
@@ -1085,7 +1245,21 @@ patient.</p>
 54
 55
 56
-57</pre>
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 17</span>
@@ -1128,6 +1302,20 @@ patient.</p>
         <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Gives back a list of all patient&#39;s likes
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] list of all patient&#39;s likes
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_likes'>likes</span>
+    <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Gives back a list of all patient&#39;s dislikes
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] list of all patient&#39;s dislikes
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_dislikes'>dislikes</span>
+    <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
 <span class='kw'>end</span></pre>
@@ -1222,7 +1410,21 @@ patient.</p>
 54
 55
 56
-57</pre>
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 17</span>
@@ -1265,6 +1467,20 @@ patient.</p>
         <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Gives back a list of all patient&#39;s likes
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] list of all patient&#39;s likes
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_likes'>likes</span>
+    <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Gives back a list of all patient&#39;s dislikes
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] list of all patient&#39;s dislikes
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_dislikes'>dislikes</span>
+    <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
 <span class='kw'>end</span></pre>
@@ -1359,7 +1575,21 @@ patient.</p>
 54
 55
 56
-57</pre>
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 17</span>
@@ -1402,6 +1632,20 @@ patient.</p>
         <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Gives back a list of all patient&#39;s likes
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] list of all patient&#39;s likes
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_likes'>likes</span>
+    <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># Gives back a list of all patient&#39;s dislikes
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @return [Array] list of all patient&#39;s dislikes
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_dislikes'>dislikes</span>
+    <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 
 <span class='kw'>end</span></pre>
@@ -1485,6 +1729,65 @@ patient</p>
       <span class='id identifier rubyid_update'>update</span><span class='lparen'>(</span><span class='label'>family_code:</span> <span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="dislikes-instance_method">
+  
+    - (<tt>Array</tt>) <strong>dislikes</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Gives back a list of all patient&#39;s dislikes</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>list of all patient&#39;s dislikes</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 67</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_dislikes'>dislikes</span>
+  <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>false</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1626,6 +1929,65 @@ patient</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="likes-instance_method">
+  
+    - (<tt>Array</tt>) <strong>likes</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Gives back a list of all patient&#39;s likes</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>list of all patient&#39;s likes</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/patient.rb', line 60</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_likes'>likes</span>
+  <span class='id identifier rubyid_preferences'>preferences</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>likes:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="preferences-instance_method">
   
     - (<tt>Array</tt>) <strong>preferences</strong> 
@@ -1740,7 +2102,7 @@ patient</p>
 </div>
 
     <div id="footer">
-  Generated on Sun Jan 31 20:31:02 2016 by
+  Generated on Mon Feb  1 06:21:05 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.3).
 </div>
