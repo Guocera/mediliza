@@ -73,6 +73,7 @@ get '/search/results' do
   @patient = Patient.find_by(family_code: params[:family_code])
   if @patient
     @volunteers = Volunteer.all
+    session[:fid] = params[:family_code]
     erb :volunteer_patient_page
   else
     @patient = Patient.new(family_code: params[:family_code])
