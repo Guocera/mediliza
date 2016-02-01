@@ -17,7 +17,7 @@ get '/volunteer_home_page/?' do
 end
 
 get '/volunteer_patient_page/:id' do
-  @patients = Patient.find params[:id]
+  @patient = Patient.find params[:id]
   @volunteers =  Volunteer.all
   erb :volunteer_patient_page
 end
