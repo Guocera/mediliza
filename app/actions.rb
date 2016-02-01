@@ -54,6 +54,9 @@ end
 get '/enduser/?'  do
   session.clear
   @patients = Patient.all
+  @staff = Staff.first
+  session[:sid] = @staff.id
+  session[:expire] = 1.week.from_now
   erb :enduser1
 end
 
