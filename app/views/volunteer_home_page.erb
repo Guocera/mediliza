@@ -59,7 +59,7 @@
       <div class="blog-wrapper"  style =  "height: 220px; "> <!-- height of class wrapper changed to 220px from the deafult -->
         <div class="container">
           <div class= "row">  
-            <h2 class="headline" style="padding-top: 100px;">Welcome <%="#{@volunteer.first_name}"%></h2>
+            <h2 class="headline text-center" style="padding-top: 100px;">Welcome <%="#{@volunteer.first_name}"%></h2>
           </div>
         </div>
       </div>
@@ -89,14 +89,16 @@
                  </ul>
                 </div>  
                 </br>
-              <h4><span>Most recently visited patients: </span></h4>
-              <ul style =  "width: 400px;">
-                <% @volunteer.last_interactions.each do |interaction| %>
-                  <li class="cat-item cat-item-4">
-                    <a href="/volunteer_patient_page/<%= interaction.patient.id %> " title="View all posts filed under Data"><%="#{interaction.patient.first_name} #{interaction.patient.last_name} "%></a> 
-                  </li>
-                <% end %>
-              </ul>
+              <h4><div style="padding-top: 50px" class="text-center">Most recently visited patients: </div></h4>
+              <div class="text-center">
+                <ul>
+                  <% @volunteer.last_interactions.each do |interaction| %>
+                    <li class="cat-item cat-item-4">
+                      <a href="/volunteer_patient_page/<%= interaction.patient.id %> " title="View all posts filed under Data"><%="#{interaction.patient.first_name} #{interaction.patient.last_name} "%></a> 
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
             </div>
 
                       
