@@ -154,17 +154,28 @@
           <div class="row">
             <main class="col-md-9">
                 <div class="faq-c" style="border: none;">
-                  <div class="faq-q" style="align: center;"><span class="faq-t">+</span>Previous interactions...</div>
+                  <div class="faq-q" style="align: center;"><span class="faq-t">+</span>Recent interactions...</div>
                   <div class="faq-a">
                     <main class="blog1col col-md-9">    
-                      <div class="col-md-8 col-md-8">                    
-                        <% @patient.last_interactions.each do |interaction| %>
-                          <ul class="list-inline info">
-                           <li><%="Volunteer: #{interaction.volunteer.first_name} #{interaction.volunteer.last_name}"%></li>
-                          <li><i class="fa fa-calendar"></i> <%="Date: #{interaction.time.strftime('%x')}"%></li>
-                          <li><i class="fa fa-comment"></i><%="#{interaction.observation}"%></li>
-                          </ul>
-                      <% end %>
+                      <div class="col-md-8 col-md-8">
+                        <div class="table-responsive"> 
+                          <table class="table">                 
+                            <tr>
+                              <td><%="Volunteer:"%></td>
+                              <td><%="Date:"%></td>
+                              <td><%="Observation & Activities:"%></td>
+                              <td><%="Walking duration (min):"%></td>
+                            </tr>
+                            <% @patient.last_interactions.each do |interaction| %>
+                              <tr>
+                                <td><%="#{interaction.volunteer.first_name} #{interaction.volunteer.last_name}"%></td>
+                                <td><%="#{interaction.time.strftime('%x')}"%></td>
+                                <td><%="#{interaction.observation}"%></td>
+                                <td><%="#{interaction.walking_duration}"%></td>
+                              </tr>
+                            <% end %>
+                          </table>
+                        </div>
                       </div>
                     </main>
                   </div>
