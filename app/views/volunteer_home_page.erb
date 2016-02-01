@@ -67,7 +67,7 @@
                <button type="button" class="btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Patient List <span class="caret"></span>
               </button>
-              <ul class="dropdown-menu text-primary">
+              <ul style="height: auto; max-height: 300px; overflow-x: hidden;" class="dropdown-menu text-primary">
                 <%@patients.each do |item|%>
                 <%link=item.id%>
                 <li><a href="/volunteer_patient_page/<%=link%>"><%="#{item.first_name} #{item.last_name}"%></a></li>
