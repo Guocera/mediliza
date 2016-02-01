@@ -91,9 +91,9 @@
             <div class="text-center">
               <ul>
                 <% @volunteer.last_interactions.each do |interaction| %>
-                  <li class="cat-item cat-item-4">
-                    <a href="/volunteer_patient_page/<%= interaction.patient.id %> " title="View all posts filed under Data"><%="#{interaction.patient.first_name} #{interaction.patient.last_name} "%></a> 
-                  </li>
+                  <a href="/volunteer_patient_page/<%= interaction.patient.id %> " title="View all posts filed under Data"><li class="cat-item cat-item-4">
+                    <%="#{interaction.patient.first_name} #{interaction.patient.last_name} "%>
+                  </li></a> 
                 <% end %>
               </ul>
             </div>
